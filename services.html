@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | Signature Elite Group</title>
+  <meta name="description" content="Explore Signature Elite Cleaning and Signature Elite Construction — two premium service divisions under one trusted group." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#080808',
+            'ink-soft': '#111111',
+            charcoal: '#1A1A1A',
+            gold: '#C9A227',
+            'gold-light': '#D8B44A',
+            'warm-white': '#F7F6F2',
+            muted: '#A5A5A5'
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="bg-warm-white font-sans text-ink-soft">
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ============================= HEADER ============================= -->
+  <header data-site-header class="site-header fixed top-0 inset-x-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 xl:px-12 flex items-center justify-between h-20 lg:h-24">
+      <a href="index.html" class="flex items-center gap-3" aria-label="Signature Elite Group — Home">
+        <span class="w-10 h-10 border border-gold flex items-center justify-center text-gold font-serif text-lg">SE</span>
+        <span class="flex flex-col leading-none">
+          <span class="text-white text-sm sm:text-base tracking-[0.2em] font-semibold">SIGNATURE ELITE</span>
+          <span class="text-gold text-[10px] sm:text-xs tracking-[0.4em]">GROUP</span>
+        </span>
+      </a>
+
+      <nav aria-label="Primary" class="hidden lg:flex items-center gap-10">
+        <a href="index.html" class="nav-link text-white/85 text-xs uppercase pb-1 inline-flex items-center">Home</a>
+        <a href="about.html" class="nav-link text-white/85 text-xs uppercase pb-1 inline-flex items-center">About</a>
+        <div class="relative group inline-flex items-center">
+          <a href="services.html" class="nav-link is-active text-white text-xs uppercase pb-1 inline-flex items-center gap-1.5" aria-current="page">
+            Services
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <div class="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-72 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300">
+            <div class="bg-ink-soft border border-gold/20 py-2 shadow-2xl">
+              <button type="button" data-service-modal="cleaning" class="block w-full text-left px-6 py-3.5 text-xs uppercase tracking-wide text-white/80 hover:text-gold-light hover:bg-white/5 transition-colors">Signature Elite Cleaning</button>
+              <button type="button" data-service-modal="construction" class="block w-full text-left px-6 py-3.5 text-xs uppercase tracking-wide text-white/80 hover:text-gold-light hover:bg-white/5 transition-colors">Signature Elite Construction</button>
+            </div>
+          </div>
+        </div>
+        <a href="contact.html" class="nav-link text-white/85 text-xs uppercase pb-1 inline-flex items-center">Contact</a>
+      </nav>
+
+      <div class="hidden lg:block">
+        <a href="contact.html" class="btn-gold inline-flex items-center px-6 py-3 text-xs font-semibold uppercase">Request a Quote</a>
+      </div>
+
+      <button data-nav-toggle type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu" class="lg:hidden text-white p-2">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <line x1="3" y1="7" x2="21" y2="7"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="17" x2="21" y2="17"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================= MOBILE NAV ========================= -->
+  <div data-mobile-nav id="mobileNav" class="mobile-nav fixed inset-0 z-[70] bg-ink lg:hidden flex flex-col">
+    <div class="flex items-center justify-between h-20 px-6 border-b border-gold/15">
+      <span class="text-white text-sm tracking-[0.2em] font-semibold">SIGNATURE ELITE</span>
+      <button data-nav-close type="button" aria-label="Close menu" class="text-white p-2">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <nav aria-label="Mobile" class="flex-1 flex flex-col justify-center gap-2 px-8">
+      <a href="index.html" class="text-white font-serif text-3xl py-4 border-b border-white/10">Home</a>
+      <a href="about.html" class="text-white font-serif text-3xl py-4 border-b border-white/10">About</a>
+      <a href="services.html" class="text-gold-light font-serif text-3xl py-4 border-b border-white/10">Services</a>
+      <a href="contact.html" class="text-white font-serif text-3xl py-4 border-b border-white/10">Contact</a>
+      <a href="contact.html" class="btn-gold mt-8 inline-flex items-center justify-center px-8 py-4 text-xs font-semibold uppercase w-full">Request a Quote</a>
+    </nav>
+  </div>
+
+  <main id="main">
+    <!-- ============================= HERO ============================= -->
+    <section class="relative h-[62vh] min-h-[440px] w-full flex items-end overflow-hidden">
+      <img data-hero-img src="" alt="Modern commercial building exterior" class="absolute inset-0 w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/25"></div>
+      <div class="relative z-10 max-w-7xl mx-auto w-full px-6 sm:px-8 lg:px-10 xl:px-12 pb-16 sm:pb-20">
+        <p class="eyebrow text-xs sm:text-sm uppercase mb-5 reveal">What We Do</p>
+        <h1 class="font-serif text-white text-4xl sm:text-6xl leading-[1.1] max-w-2xl mb-6 reveal reveal-delay-1">Our Services</h1>
+        <p class="text-white/75 max-w-xl text-base sm:text-lg leading-relaxed reveal reveal-delay-2">
+          Signature Elite Group combines professional cleaning and quality construction services under one trusted group — delivered with precision and care.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================= CLEANING ============================= -->
+    <section class="bg-warm-white py-24 sm:py-32">
+      <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 xl:px-12 grid lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+          <div class="img-zoom aspect-[4/5] sm:aspect-[16/12] overflow-hidden">
+            <img data-cleaning-img src="" alt="" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <div class="bg-ink p-8 sm:p-10 lg:p-12">
+            <p class="eyebrow text-xs uppercase mb-5">Division 01</p>
+            <h2 class="font-serif text-white text-3xl sm:text-4xl lg:text-5xl leading-tight mb-6">Signature Elite Cleaning</h2>
+            <div class="gold-rule mb-8"></div>
+            <p class="text-white/65 leading-relaxed mb-8 max-w-lg">
+              Professional cleaning solutions for commercial spaces, offices, residential properties and more — delivered with consistency, care and an eye for detail.
+            </p>
+            <ul class="grid grid-cols-2 gap-x-6 gap-y-3 mb-10 max-w-lg">
+              <li class="flex items-start gap-2 text-sm text-white/80"><svg class="shrink-0 mt-1" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A227" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Commercial &amp; Office</li>
+              <li class="flex items-start gap-2 text-sm text-white/80"><svg class="shrink-0 mt-1" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A227" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Residential Cleaning</li>
+              <li class="flex items-start gap-2 text-sm text-white/80"><svg class="shrink-0 mt-1" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A227" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>End-of-Lease Cleaning</li>
+              <li class="flex items-start gap-2 text-sm text-white/80"><svg class="shrink-0 mt-1" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A227" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Deep &amp; Sanitisation</li>
+            </ul>
+            <button type="button" data-service-modal="cleaning" class="btn-outline inline-flex items-center gap-3 px-7 py-3.5 text-xs font-semibold uppercase">
+              Explore Service
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= CONSTRUCTION ============================= -->
+    <section class="bg-ink-soft py-24 sm:py-32">
+      <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 xl:px-12 grid lg:grid-cols-2 gap-16 items-center">
+        <div class="order-2 lg:order-1 reveal">
+          <div class="bg-warm-white p-8 sm:p-10 lg:p-12">
+            <p class="eyebrow text-xs uppercase mb-5">Division 02</p>
+            <h2 class="font-serif text-ink-soft text-3xl sm:text-4xl lg:text-5xl leading-tight mb-6">Signature Elite Construction</h2>
+            <div class="gold-rule mb-8"></div>
+            <p class="text-muted leading-relaxed mb-8 max-w-lg">
+              Professional construction solutions delivered with precision, integrity and disciplined project management — from renovations to full-scale builds.
+            </p>
+            <ul class="grid grid-cols-2 gap-x-6 gap-y-3 mb-10 max-w-lg">
+              <li class="flex items-start gap-2 text-sm text-ink-soft"><svg class="shrink-0 mt-1" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A227" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Residential Construction</li>
+              <li class="flex items-start gap-2 text-sm text-ink-soft"><svg class="shrink-0 mt-1" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A227" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Commercial Construction</li>
+              <li class="flex items-start gap-2 text-sm text-ink-soft"><svg class="shrink-0 mt-1" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A227" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Renovations &amp; Extensions</li>
+              <li class="flex items-start gap-2 text-sm text-ink-soft"><svg class="shrink-0 mt-1" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A227" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Project Management</li>
+            </ul>
+            <button type="button" data-service-modal="construction" class="btn-outline-dark inline-flex items-center gap-3 px-7 py-3.5 text-xs font-semibold uppercase">
+              Explore Service
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+          </div>
+        </div>
+        <div class="order-1 lg:order-2 reveal reveal-delay-1">
+          <div class="img-zoom aspect-[4/5] sm:aspect-[16/12] overflow-hidden">
+            <img data-construction-img src="" alt="" class="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================= FOOTER ============================= -->
+  <footer class="bg-charcoal text-white/70 border-t-2 border-white/15">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 xl:px-12 py-16 sm:py-20 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <a href="index.html" class="flex items-center gap-3 mb-5" aria-label="Signature Elite Group — Home">
+          <span class="w-10 h-10 border border-gold flex items-center justify-center text-gold font-serif text-lg">SE</span>
+          <span class="flex flex-col leading-none">
+            <span class="text-white text-sm tracking-[0.2em] font-semibold">SIGNATURE ELITE</span>
+            <span class="text-gold text-[10px] tracking-[0.4em]">GROUP</span>
+          </span>
+        </a>
+        <p class="text-sm leading-relaxed mb-6 max-w-xs">Premium cleaning and construction solutions delivered with professionalism, quality and integrity.</p>
+        <div class="flex items-center gap-4">
+          <a href="#" aria-label="Facebook" class="w-9 h-9 border border-white/15 flex items-center justify-center hover:border-gold hover:text-gold-light transition-colors">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn" class="w-9 h-9 border border-white/15 flex items-center justify-center hover:border-gold hover:text-gold-light transition-colors">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="w-9 h-9 border border-white/15 flex items-center justify-center hover:border-gold hover:text-gold-light transition-colors">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-white text-xs uppercase tracking-[0.2em] font-semibold mb-6">Quick Links</h3>
+        <ul class="space-y-3 text-sm">
+          <li><a href="index.html" class="hover:text-gold-light transition-colors">Home</a></li>
+          <li><a href="about.html" class="hover:text-gold-light transition-colors">About Us</a></li>
+          <li><a href="services.html" class="hover:text-gold-light transition-colors">Services</a></li>
+          <li><a href="contact.html" class="hover:text-gold-light transition-colors">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-white text-xs uppercase tracking-[0.2em] font-semibold mb-6">Our Services</h3>
+        <ul class="space-y-3 text-sm">
+          <li><button type="button" data-service-modal="cleaning" class="hover:text-gold-light transition-colors text-left">Signature Elite Cleaning</button></li>
+          <li><button type="button" data-service-modal="construction" class="hover:text-gold-light transition-colors text-left">Signature Elite Construction</button></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-white text-xs uppercase tracking-[0.2em] font-semibold mb-6">Contact</h3>
+        <ul class="space-y-3 text-sm">
+          <li>Phone: <a href="tel:+61000000000" class="hover:text-gold-light transition-colors">+61 (0) 00 000 000</a></li>
+          <li>Email: <a href="mailto:info@signatureelitegroup.com.au" class="hover:text-gold-light transition-colors">info@signatureelitegroup.com.au</a></li>
+          <li>Victoria, Australia</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 xl:px-12 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
+        <p>&copy; <span data-year>2026</span> Signature Elite Group. All Rights Reserved.</p>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-gold-light transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-gold-light transition-colors">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/images.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.querySelector('[data-hero-img]').src = SE_IMG.services.hero.src;
+    document.querySelector('[data-hero-img]').alt = SE_IMG.services.hero.alt;
+    document.querySelector('[data-cleaning-img]').src = SE_IMG.services.cleaning.src;
+    document.querySelector('[data-cleaning-img]').alt = SE_IMG.services.cleaning.alt;
+    document.querySelector('[data-construction-img]').src = SE_IMG.services.construction.src;
+    document.querySelector('[data-construction-img]').alt = SE_IMG.services.construction.alt;
+  </script>
+</body>
+</html>

@@ -6,6 +6,10 @@
   <title>Signature Elite Group | Premium Cleaning &amp; Construction</title>
   <meta name="description" content="Signature Elite Group delivers premium cleaning and construction solutions with precision, professionalism and an unwavering commitment to quality." />
 
+  <link rel="icon" type="image/png" href="assets/logo/favicon-32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="assets/logo/favicon-48.png" sizes="48x48" />
+  <link rel="apple-touch-icon" href="assets/logo/favicon-180.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
@@ -41,7 +45,7 @@
   <header data-site-header class="site-header fixed top-0 inset-x-0 z-50">
     <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 xl:px-12 flex items-center justify-between h-20 lg:h-24">
       <a href="index.html" class="flex items-center gap-3" aria-label="Signature Elite Group — Home">
-        <span class="w-10 h-10 border border-gold flex items-center justify-center text-gold font-serif text-lg">SE</span>
+        <img src="assets/logo/logo-mark.png" alt="Signature Elite Group" class="w-10 h-10 object-contain" />
         <span class="flex flex-col leading-none">
           <span class="text-white text-sm sm:text-base tracking-[0.2em] font-semibold">SIGNATURE ELITE</span>
           <span class="text-gold text-[10px] sm:text-xs tracking-[0.4em]">GROUP</span>
@@ -81,7 +85,10 @@
   <!-- ========================= MOBILE NAV ========================= -->
   <div data-mobile-nav id="mobileNav" class="mobile-nav fixed inset-0 z-[70] bg-ink lg:hidden flex flex-col">
     <div class="flex items-center justify-between h-20 px-6 border-b border-gold/15">
-      <span class="text-white text-sm tracking-[0.2em] font-semibold">SIGNATURE ELITE</span>
+      <span class="flex items-center gap-3">
+        <img src="assets/logo/logo-mark.png" alt="Signature Elite Group" class="w-8 h-8 object-contain" />
+        <span class="text-white text-sm tracking-[0.2em] font-semibold">SIGNATURE ELITE</span>
+      </span>
       <button data-nav-close type="button" aria-label="Close menu" class="text-white p-2">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       </button>
@@ -98,9 +105,19 @@
   <main id="main">
     <!-- ============================= HERO ============================= -->
     <section class="relative h-[92vh] min-h-[640px] w-full flex items-end overflow-hidden">
-      <img src="" data-hero-img alt="Modern glass commercial tower at dusk, headquarters of Signature Elite Group" class="absolute inset-0 w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/20"></div>
-      <div class="absolute inset-0 bg-ink/25"></div>
+      <div class="absolute inset-0 flex flex-col">
+        <div class="relative w-full h-1/2 overflow-hidden bg-ink">
+          <video autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&amp;fit=crop&amp;w=2000&amp;q=80" class="absolute inset-0 w-full h-full object-contain object-right" aria-hidden="true">
+            <source src="assets/videos/hero.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="relative w-full h-1/2 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&amp;fit=crop&amp;w=2000&amp;q=80" alt="Modern glass commercial tower at dusk, headquarters of Signature Elite Group" class="absolute inset-0 w-full h-full object-cover" />
+        </div>
+      </div>
+      <div class="absolute left-0 right-0 top-1/2 h-40 -translate-y-1/2 pointer-events-none" style="background:linear-gradient(to bottom, rgba(8,8,8,0) 0%, rgba(8,8,8,0.95) 50%, rgba(8,8,8,0) 100%);"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-ink/60 via-ink/35 to-ink/20"></div>
+      <div class="absolute inset-0 bg-ink/10"></div>
 
       <div class="relative z-10 max-w-7xl mx-auto w-full px-6 sm:px-8 lg:px-10 xl:px-12 pb-24 sm:pb-28">
         <p class="eyebrow text-xs sm:text-sm uppercase mb-6 reveal">Signature Elite Group</p>
@@ -230,7 +247,7 @@
     <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 xl:px-12 py-16 sm:py-20 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
       <div>
         <a href="index.html" class="flex items-center gap-3 mb-5" aria-label="Signature Elite Group — Home">
-          <span class="w-10 h-10 border border-gold flex items-center justify-center text-gold font-serif text-lg">SE</span>
+          <img src="assets/logo/logo-mark.png" alt="Signature Elite Group" class="w-10 h-10 object-contain" />
           <span class="flex flex-col leading-none">
             <span class="text-white text-sm tracking-[0.2em] font-semibold">SIGNATURE ELITE</span>
             <span class="text-gold text-[10px] tracking-[0.4em]">GROUP</span>
@@ -293,8 +310,6 @@
   <script src="js/modal.js"></script>
   <script src="js/main.js"></script>
   <script>
-    document.querySelector('[data-hero-img]').src = SE_IMG.home.hero.src;
-    document.querySelector('[data-hero-img]').alt = SE_IMG.home.hero.alt;
     document.querySelector('[data-intro-img]').src = SE_IMG.home.intro.src;
     document.querySelector('[data-intro-img]').alt = SE_IMG.home.intro.alt;
     document.querySelector('[data-service-cleaning-img]').src = SE_IMG.home.cleaning.src;

@@ -61,7 +61,7 @@
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </a>
           <div class="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-72 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300">
-            <div class="bg-ink-soft border border-gold/20 py-2 shadow-2xl">
+            <div class="panel-frosted-dark py-2">
               <button type="button" data-service-modal="cleaning" class="block w-full text-left px-6 py-3.5 text-xs uppercase tracking-wide text-white/80 hover:text-gold-light hover:bg-white/5 transition-colors">Signature Elite Cleaning</button>
               <button type="button" data-service-modal="construction" class="block w-full text-left px-6 py-3.5 text-xs uppercase tracking-wide text-white/80 hover:text-gold-light hover:bg-white/5 transition-colors">Signature Elite Construction</button>
             </div>
@@ -69,10 +69,6 @@
         </div>
         <a href="contact.html" class="nav-link is-active text-white text-xs uppercase pb-1 inline-flex items-center" aria-current="page">Contact</a>
       </nav>
-
-      <div class="hidden lg:block">
-        <a href="contact.html" class="btn-gold inline-flex items-center px-6 py-3 text-xs font-semibold uppercase">Request a Quote</a>
-      </div>
 
       <button data-nav-toggle type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu" class="lg:hidden text-white p-2">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
@@ -83,7 +79,7 @@
   </header>
 
   <!-- ========================= MOBILE NAV ========================= -->
-  <div data-mobile-nav id="mobileNav" class="mobile-nav fixed inset-0 z-[70] bg-ink lg:hidden flex flex-col">
+  <div data-mobile-nav id="mobileNav" class="mobile-nav fixed inset-0 z-[70] lg:hidden flex flex-col">
     <div class="flex items-center justify-between h-20 px-6 border-b border-gold/15">
       <span class="flex items-center gap-3">
         <img src="assets/logo/logo-mark.png" alt="Signature Elite Group" class="w-8 h-8 object-contain" />
@@ -98,152 +94,80 @@
       <a href="about.html" class="text-white font-serif text-3xl py-4 border-b border-white/10">About</a>
       <a href="services.html" class="text-white font-serif text-3xl py-4 border-b border-white/10">Services</a>
       <a href="contact.html" class="text-gold-light font-serif text-3xl py-4 border-b border-white/10">Contact</a>
-      <a href="contact.html" class="btn-gold mt-8 inline-flex items-center justify-center px-8 py-4 text-xs font-semibold uppercase w-full">Request a Quote</a>
     </nav>
   </div>
 
   <main id="main">
     <!-- ============================= HERO ============================= -->
-    <section class="relative h-[62vh] min-h-[440px] w-full flex items-end overflow-hidden">
+    <section class="relative min-h-[62vh] w-full flex items-end overflow-hidden">
       <img data-hero-img src="" alt="Dramatic angular modern building facade at dusk" class="absolute inset-0 w-full h-full object-cover" />
       <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/25"></div>
       <div class="relative z-10 max-w-7xl mx-auto w-full px-6 sm:px-8 lg:px-10 xl:px-12 pb-16 sm:pb-20">
-        <p class="eyebrow text-xs sm:text-sm uppercase mb-5 reveal">Get In Touch</p>
-        <h1 class="font-serif text-white text-4xl sm:text-6xl leading-[1.1] max-w-2xl reveal reveal-delay-1">Let's Discuss Your Project</h1>
-        <p class="text-white/75 max-w-xl mt-6 text-base sm:text-lg leading-relaxed reveal reveal-delay-2">
-          Tell us about your cleaning or construction needs, and our team will respond promptly with a tailored solution.
-        </p>
+        <div data-hero-panel class="panel-frosted-dark corner-frame inline-block max-w-2xl px-7 py-8 sm:px-9 sm:py-10 reveal">
+          <p class="eyebrow text-xs sm:text-sm uppercase mb-5">Get In Touch</p>
+          <h1 class="font-serif text-white text-4xl sm:text-6xl leading-[1.1]">Let's Discuss Your Project</h1>
+          <p class="text-white/75 max-w-xl mt-6 text-base sm:text-lg leading-relaxed">
+            Tell us about your cleaning or construction needs, and our team will respond promptly with a tailored solution.
+          </p>
+        </div>
       </div>
     </section>
 
     <!-- ============================= CONTACT ============================= -->
-    <section class="bg-warm-white py-20 sm:py-28">
-      <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 xl:px-12 grid lg:grid-cols-5 gap-16">
-        <!-- Contact info -->
-        <div class="lg:col-span-2 reveal">
-          <p class="eyebrow text-xs uppercase mb-5">Contact Information</p>
-          <h2 class="font-serif text-3xl leading-tight mb-8">We'd Love to Hear From You.</h2>
-          <div class="gold-rule mb-10"></div>
+    <section class="relative bg-warm-white py-24 sm:py-32">
+      <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 xl:px-12">
+        <div class="panel-frame-light max-w-2xl mx-auto p-8 sm:p-12 lg:p-16 reveal">
+          <p class="eyebrow text-xs uppercase mb-5 text-center">Contact Information</p>
+          <h2 class="font-serif text-ink-soft text-3xl sm:text-4xl leading-tight mb-8 text-center">We'd Love to Hear From You.</h2>
+          <div class="gold-rule mx-auto mb-10"></div>
 
-          <ul class="space-y-8">
-            <li class="flex items-start gap-4">
-              <span class="w-11 h-11 border border-gold/40 flex items-center justify-center shrink-0 text-gold">
+          <ul class="divide-y divide-ink/10">
+            <li class="flex items-start gap-4 py-5 first:pt-0">
+              <span class="shrink-0 mt-1 text-gold">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
               </span>
               <div>
                 <p class="text-xs uppercase tracking-wide text-muted mb-1">Phone</p>
-                <a href="tel:+61000000000" class="text-lg hover:text-gold transition-colors">+61 (0) 00 000 000</a>
+                <a href="tel:+61000000000" class="text-lg text-ink-soft hover:text-gold transition-colors">+61 (0) 00 000 000</a>
               </div>
             </li>
-            <li class="flex items-start gap-4">
-              <span class="w-11 h-11 border border-gold/40 flex items-center justify-center shrink-0 text-gold">
+            <li class="flex items-start gap-4 py-5">
+              <span class="shrink-0 mt-1 text-gold">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 6-10 7L2 6"></path></svg>
               </span>
               <div>
                 <p class="text-xs uppercase tracking-wide text-muted mb-1">Email</p>
-                <a href="mailto:info@signatureelitegroup.com.au" class="text-lg hover:text-gold transition-colors break-all">info@signatureelitegroup.com.au</a>
+                <a href="mailto:info@signatureelitegroup.com.au" class="text-lg text-ink-soft hover:text-gold transition-colors break-all">info@signatureelitegroup.com.au</a>
               </div>
             </li>
-            <li class="flex items-start gap-4">
-              <span class="w-11 h-11 border border-gold/40 flex items-center justify-center shrink-0 text-gold">
+            <li class="flex items-start gap-4 py-5">
+              <span class="shrink-0 mt-1 text-gold">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
               </span>
               <div>
                 <p class="text-xs uppercase tracking-wide text-muted mb-1">Location</p>
-                <p class="text-lg">Victoria, Australia</p>
+                <p class="text-lg text-ink-soft">Victoria, Australia</p>
               </div>
             </li>
-            <li class="flex items-start gap-4">
-              <span class="w-11 h-11 border border-gold/40 flex items-center justify-center shrink-0 text-gold">
+            <li class="flex items-start gap-4 py-5 last:pb-0">
+              <span class="shrink-0 mt-1 text-gold">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
               </span>
               <div>
                 <p class="text-xs uppercase tracking-wide text-muted mb-1">Business Hours</p>
-                <p class="text-lg">Monday – Friday<br />7:00 AM – 6:00 PM</p>
+                <p class="text-lg text-ink-soft">Monday – Friday<br />7:00 AM – 6:00 PM</p>
               </div>
             </li>
           </ul>
-
-          <div class="mt-12 img-zoom aspect-[16/10] overflow-hidden hidden lg:block">
-            <img data-contact-img src="" alt="" class="w-full h-full object-cover" />
-          </div>
-        </div>
-
-        <!-- Contact form -->
-        <div class="lg:col-span-3 reveal reveal-delay-1">
-          <div class="bg-ink p-7 sm:p-10 lg:p-12">
-            <h2 class="font-serif text-white text-2xl sm:text-3xl mb-2">Request a Quote</h2>
-            <p class="text-white/55 text-sm mb-8">Fields marked with an asterisk (*) are required.</p>
-
-            <form data-contact-form novalidate>
-              <div class="grid sm:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label for="fullName" class="block text-xs uppercase tracking-wide text-white/70 mb-2">Full Name *</label>
-                  <input type="text" id="fullName" name="fullName" class="w-full bg-transparent border border-white/20 text-white px-4 py-3 text-sm focus:border-gold outline-none transition-colors" />
-                  <p data-error-for="fullName" class="text-red-400 text-xs mt-1.5 hidden" role="alert"></p>
-                </div>
-                <div>
-                  <label for="company" class="block text-xs uppercase tracking-wide text-white/70 mb-2">Company</label>
-                  <input type="text" id="company" name="company" class="w-full bg-transparent border border-white/20 text-white px-4 py-3 text-sm focus:border-gold outline-none transition-colors" />
-                </div>
-              </div>
-
-              <div class="grid sm:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label for="phone" class="block text-xs uppercase tracking-wide text-white/70 mb-2">Phone *</label>
-                  <input type="tel" id="phone" name="phone" class="w-full bg-transparent border border-white/20 text-white px-4 py-3 text-sm focus:border-gold outline-none transition-colors" />
-                  <p data-error-for="phone" class="text-red-400 text-xs mt-1.5 hidden" role="alert"></p>
-                </div>
-                <div>
-                  <label for="email" class="block text-xs uppercase tracking-wide text-white/70 mb-2">Email *</label>
-                  <input type="email" id="email" name="email" class="w-full bg-transparent border border-white/20 text-white px-4 py-3 text-sm focus:border-gold outline-none transition-colors" />
-                  <p data-error-for="email" class="text-red-400 text-xs mt-1.5 hidden" role="alert"></p>
-                </div>
-              </div>
-
-              <div class="mb-6">
-                <label for="service" class="block text-xs uppercase tracking-wide text-white/70 mb-2">Service Required *</label>
-                <select id="service" name="service" class="w-full bg-ink border border-white/20 text-white px-4 py-3 text-sm focus:border-gold outline-none transition-colors">
-                  <option value="" class="bg-ink">Select a service</option>
-                  <option value="cleaning" class="bg-ink">Signature Elite Cleaning</option>
-                  <option value="construction" class="bg-ink">Signature Elite Construction</option>
-                  <option value="both" class="bg-ink">Both Services</option>
-                  <option value="other" class="bg-ink">Other / Not Sure</option>
-                </select>
-                <p data-error-for="service" class="text-red-400 text-xs mt-1.5 hidden" role="alert"></p>
-              </div>
-
-              <div class="mb-8">
-                <label for="message" class="block text-xs uppercase tracking-wide text-white/70 mb-2">Message *</label>
-                <textarea id="message" name="message" rows="5" class="w-full bg-transparent border border-white/20 text-white px-4 py-3 text-sm focus:border-gold outline-none transition-colors resize-none"></textarea>
-                <p data-error-for="message" class="text-red-400 text-xs mt-1.5 hidden" role="alert"></p>
-              </div>
-
-              <button type="submit" class="btn-gold w-full sm:w-auto inline-flex items-center justify-center gap-3 px-9 py-4 text-xs font-semibold uppercase">
-                Request a Quote
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-              </button>
-            </form>
-
-            <div data-contact-success tabindex="-1" class="hidden text-center py-10">
-              <span class="mx-auto mb-6 w-14 h-14 border border-gold flex items-center justify-center text-gold">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              </span>
-              <h3 class="font-serif text-white text-2xl mb-3">Thank You.</h3>
-              <p class="text-white/60 max-w-sm mx-auto leading-relaxed">
-                Your request has been prepared successfully. Since this is a preview site, no message was actually sent — please contact us directly by phone or email to reach our team.
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
   </main>
 
   <!-- ============================= FOOTER ============================= -->
-  <footer class="bg-charcoal text-white/70 border-t-2 border-white/15">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 xl:px-12 py-16 sm:py-20 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-      <div>
+  <footer class="site-footer text-white/70 border-t-2 border-white/15">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 xl:px-12 py-16 sm:py-20 grid gap-10 lg:gap-0 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="footer-col">
         <a href="index.html" class="flex items-center gap-3 mb-5" aria-label="Signature Elite Group — Home">
           <img src="assets/logo/logo-mark.png" alt="Signature Elite Group" class="w-10 h-10 object-contain" />
           <span class="flex flex-col leading-none">
@@ -256,8 +180,8 @@
           <a href="#" aria-label="Facebook" class="w-9 h-9 border border-white/15 flex items-center justify-center hover:border-gold hover:text-gold-light transition-colors">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
           </a>
-          <a href="#" aria-label="LinkedIn" class="w-9 h-9 border border-white/15 flex items-center justify-center hover:border-gold hover:text-gold-light transition-colors">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          <a href="#" aria-label="WhatsApp" class="w-9 h-9 border border-white/15 flex items-center justify-center hover:border-gold hover:text-gold-light transition-colors">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.001 2C6.478 2 2 6.478 2 12c0 1.85.5 3.58 1.365 5.065L2 22l5.077-1.335A9.94 9.94 0 0012 22c5.523 0 10-4.478 10-10S17.523 2 12.001 2zm5.657 14.13c-.242.677-1.197 1.24-1.955 1.397-.52.107-1.198.192-3.483-.747-2.923-1.2-4.803-4.14-4.95-4.334-.14-.194-1.187-1.583-1.187-3.02 0-1.438.75-2.146 1.017-2.44.24-.267.517-.334.69-.334.173 0 .347.002.498.01.16.008.374-.06.585.446.242.58.822 2.006.895 2.153.074.147.123.32.025.512-.099.192-.148.312-.297.48-.148.173-.31.386-.443.518-.148.148-.302.31-.13.607.173.297.77 1.27 1.653 2.058 1.136 1.012 2.093 1.325 2.39 1.475.297.148.47.124.644-.075.173-.198.744-.867.94-1.164.198-.298.396-.248.669-.15.273.1 1.734.818 2.03.967.298.148.497.223.57.347.074.123.074.717-.168 1.393z"></path></svg>
           </a>
           <a href="#" aria-label="Instagram" class="w-9 h-9 border border-white/15 flex items-center justify-center hover:border-gold hover:text-gold-light transition-colors">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
@@ -265,7 +189,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="footer-col">
         <h3 class="text-white text-xs uppercase tracking-[0.2em] font-semibold mb-6">Quick Links</h3>
         <ul class="space-y-3 text-sm">
           <li><a href="index.html" class="hover:text-gold-light transition-colors">Home</a></li>
@@ -275,7 +199,7 @@
         </ul>
       </div>
 
-      <div>
+      <div class="footer-col">
         <h3 class="text-white text-xs uppercase tracking-[0.2em] font-semibold mb-6">Our Services</h3>
         <ul class="space-y-3 text-sm">
           <li><button type="button" data-service-modal="cleaning" class="hover:text-gold-light transition-colors text-left">Signature Elite Cleaning</button></li>
@@ -283,7 +207,7 @@
         </ul>
       </div>
 
-      <div>
+      <div class="footer-col">
         <h3 class="text-white text-xs uppercase tracking-[0.2em] font-semibold mb-6">Contact</h3>
         <ul class="space-y-3 text-sm">
           <li>Phone: <a href="tel:+61000000000" class="hover:text-gold-light transition-colors">+61 (0) 00 000 000</a></li>
@@ -294,7 +218,7 @@
     </div>
 
     <div class="border-t border-white/10">
-      <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 xl:px-12 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
+      <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 xl:px-12 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/60">
         <p>&copy; <span data-year>2026</span> Signature Elite Group. All Rights Reserved.</p>
         <div class="flex items-center gap-6">
           <a href="#" class="hover:text-gold-light transition-colors">Privacy Policy</a>
@@ -307,12 +231,9 @@
   <script src="js/images.js"></script>
   <script src="js/modal.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/contact.js"></script>
   <script>
     document.querySelector('[data-hero-img]').src = SE_IMG.contact.hero.src;
     document.querySelector('[data-hero-img]').alt = SE_IMG.contact.hero.alt;
-    document.querySelector('[data-contact-img]').src = SE_IMG.contact.side.src;
-    document.querySelector('[data-contact-img]').alt = SE_IMG.contact.side.alt;
   </script>
 </body>
 </html>

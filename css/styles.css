@@ -36,6 +36,97 @@ h1, h2, h3, h4, .font-serif {
 html, body { max-width: 100%; }
 
 /* ---------------------------------------------------------------------
+   Architectural Transparency
+   Two panel types, never mixed:
+   - .panel-frame-*   hairline border, near-invisible same-tone tint, no
+     blur. Only for panels on a FLAT SECTION whose color already matches
+     (dark panel on a dark section, light panel on a light section) so
+     contrast holds by construction.
+   - .panel-frosted-* real blur + a fixed, generously opaque tint. Only
+     for panels that overlap actual PHOTOGRAPHY (hero heading, modal,
+     immersive service compositions) — opacity is a fixed design
+     constant here, not tuned against a shifting section color.
+   --------------------------------------------------------------------- */
+.panel-frame-dark {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.panel-frame-light {
+  background: rgba(8, 8, 8, 0.02);
+  border: 1px solid rgba(8, 8, 8, 0.12);
+}
+
+/* Architectural glass panel — a standalone surface for sections with no
+   photography to blur against (e.g. "Why Clients Choose Us"). The pale
+   tint + blur gives it a distinct depth from the flat dark section behind
+   it, and the ::before is a faint diagonal light/reflection catch along
+   the top-left edge rather than a full glossy sheen. */
+.glass-standard {
+  position: relative;
+  background: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+.glass-standard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 30%);
+  pointer-events: none;
+}
+
+.panel-frosted-dark {
+  background: rgba(8, 8, 8, 0.48);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+.panel-frosted-light {
+  background: rgba(247, 246, 242, 0.72);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(8, 8, 8, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* Architectural framing motif — thin corner brackets, used sparingly */
+.corner-frame {
+  position: relative;
+}
+.corner-frame::before,
+.corner-frame::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border: 1px solid rgba(201, 162, 39, 0.55);
+  pointer-events: none;
+}
+.corner-frame::before {
+  top: -1px;
+  left: -1px;
+  border-right: none;
+  border-bottom: none;
+}
+.corner-frame::after {
+  bottom: -1px;
+  right: -1px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Faint oversized numeral — About timeline / Services division markers */
+.section-number {
+  font-family: 'Playfair Display', Georgia, serif;
+  line-height: 1;
+  color: rgba(201, 162, 39, 0.14);
+}
+
+/* ---------------------------------------------------------------------
    Selection & focus
    --------------------------------------------------------------------- */
 ::selection {
@@ -112,15 +203,17 @@ select:focus-visible,
    Header
    --------------------------------------------------------------------- */
 .site-header {
-  background-color: rgba(8, 8, 8, 0.35);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(201, 162, 39, 0.18);
-  transition: background-color 0.4s ease, border-color 0.4s ease, padding 0.4s ease;
+  background-color: rgba(8, 8, 8, 0.08);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background-color 0.4s ease, border-color 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease;
 }
 .site-header.is-scrolled {
-  background-color: rgba(8, 8, 8, 0.96);
-  border-bottom-color: rgba(201, 162, 39, 0.35);
+  background-color: rgba(8, 8, 8, 0.86);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  border-bottom-color: rgba(201, 162, 39, 0.3);
 }
 
 .nav-link {
@@ -147,8 +240,27 @@ select:focus-visible,
 
 /* Mobile nav */
 .mobile-nav {
+  background: rgba(8, 8, 8, 0.88);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
   transform: translateY(-100%);
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.site-footer {
+  background: rgba(10, 10, 10, 0.94);
+}
+.footer-col:not(:first-child) {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+}
+@media (min-width: 1024px) {
+  .footer-col:not(:first-child) {
+    border-top: none;
+    padding-top: 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    padding-left: 2.5rem;
+  }
 }
 .mobile-nav.is-open {
   transform: translateY(0);
@@ -206,9 +318,9 @@ select:focus-visible,
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: rgba(5, 5, 5, 0.82);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: rgba(5, 5, 5, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
@@ -225,7 +337,6 @@ select:focus-visible,
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.25rem;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
@@ -235,7 +346,16 @@ select:focus-visible,
   pointer-events: auto;
 }
 
+/* Floating glass layer — deliberately more transparent than the shared
+   .panel-frosted-* system, since the dimmed+blurred overlay sitting behind
+   it already does most of the work of keeping content legible, letting
+   the card itself lean into "glass" rather than "panel". */
 .service-modal-card {
+  background: rgba(10, 10, 10, 0.4);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
   transform: translateY(32px) scale(0.98);
   opacity: 0;
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);

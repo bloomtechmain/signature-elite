@@ -106,10 +106,46 @@
     if (el) el.textContent = new Date().getFullYear();
   }
 
+  /* ---------------------------------------------------------------------
+     Hero panel parallax — subtle drift on the floating translucent hero
+     panel as the user scrolls past it. Capped and damped; skipped under
+     prefers-reduced-motion.
+     --------------------------------------------------------------------- */
+  function initHeroParallax() {
+    const panel = document.querySelector("[data-hero-panel]");
+    if (!panel) return;
+
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (prefersReduced) return;
+
+    const MAX_DRIFT = 40;
+    let ticking = false;
+
+    const update = () => {
+      const drift = Math.min(window.scrollY * 0.15, MAX_DRIFT);
+      panel.style.transform = `translateY(${drift}px)`;
+      ticking = false;
+    };
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!ticking) {
+          window.requestAnimationFrame(update);
+          ticking = true;
+        }
+      },
+      { passive: true }
+    );
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     initHeaderScroll();
     initMobileNav();
     initScrollReveal();
     initFooterYear();
+    initHeroParallax();
   });
 })();

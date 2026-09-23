@@ -16,6 +16,7 @@
       eyebrow: "Signature Elite Cleaning",
       title: "Professional Cleaning Solutions",
       image: SE_IMG.modal.cleaning.main,
+      caption: "Cleaner spaces. Healthier environments. Brighter tomorrows.",
       description:
         "Meticulous, reliable cleaning for commercial, residential and industrial spaces across Victoria — delivered by trained teams to a consistent, professional standard.",
       services: [
@@ -34,6 +35,7 @@
       eyebrow: "Signature Elite Construction",
       title: "Professional Construction Solutions",
       image: SE_IMG.modal.construction.main,
+      caption: "Stronger foundations. Lasting structures. Built with precision.",
       description:
         "Residential and commercial construction, renovation and property improvement delivered with precision, integrity and disciplined project management.",
       services: [
@@ -64,43 +66,47 @@
     panel.setAttribute("data-modal-panel", "");
 
     panel.innerHTML = `
-      <div class="service-modal-card relative w-full max-w-5xl h-[92vh] sm:h-[85vh] max-h-[760px] overflow-hidden bg-[#0d0d0d] border border-[#C9A227]/25 shadow-2xl"
+      <div class="service-modal-card relative w-full h-full overflow-hidden"
            role="dialog" aria-modal="true" aria-labelledby="serviceModalTitle" tabindex="-1">
         <button type="button" data-modal-close aria-label="Close dialog"
-          class="absolute top-3 right-3 sm:top-5 sm:right-5 z-20 w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center border border-white/20 text-white hover:border-[#C9A227] hover:text-[#D8B44A] transition-colors bg-[#0d0d0d]/70">
+          class="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 w-10 h-10 flex items-center justify-center text-white/70 hover:text-[#D8B44A] transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
 
-        <div class="grid md:grid-cols-2 h-full">
-          <div data-modal-image-wrap class="relative h-28 sm:h-44 md:h-full shrink-0">
+        <div class="grid md:grid-cols-[2fr_3fr] h-full">
+          <div data-modal-image-wrap class="relative h-40 sm:h-56 md:h-full shrink-0">
             <img data-modal-image src="" alt="" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent md:bg-gradient-to-r"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent"></div>
+            <div class="absolute left-6 right-6 bottom-6 md:left-8 md:right-8 md:bottom-8">
+              <div class="w-8 h-px bg-gold mb-3"></div>
+              <p data-modal-caption class="text-white text-sm sm:text-base font-serif italic leading-snug"></p>
+            </div>
           </div>
 
-          <div data-modal-content class="relative flex flex-col justify-center min-h-0 h-full overflow-y-auto p-5 sm:p-8 lg:p-10">
+          <div data-modal-content class="relative flex flex-col justify-center min-h-0 h-full overflow-y-auto p-8 sm:p-14 lg:p-20 xl:p-24">
             <!-- DETAILS VIEW -->
-            <div data-view="details">
-              <p data-modal-eyebrow class="eyebrow text-[11px] sm:text-xs uppercase mb-2"></p>
-              <h2 id="serviceModalTitle" data-modal-title class="font-serif text-xl sm:text-2xl lg:text-3xl text-white leading-tight mb-3"></h2>
-              <div class="gold-rule mb-4"></div>
-              <p data-modal-description class="text-[#A5A5A5] text-sm leading-relaxed mb-5"></p>
+            <div data-view="details" class="max-w-2xl">
+              <p data-modal-eyebrow class="eyebrow text-sm sm:text-base uppercase mb-4"></p>
+              <h2 id="serviceModalTitle" data-modal-title class="font-serif text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-6"></h2>
+              <div class="gold-rule mb-7"></div>
+              <p data-modal-description class="text-[#A5A5A5] text-base sm:text-lg leading-relaxed mb-9"></p>
 
-              <h3 class="text-white text-[11px] uppercase tracking-[0.15em] mb-2.5">Key Services</h3>
-              <ul data-modal-services class="grid grid-cols-2 gap-x-5 gap-y-1.5 mb-5"></ul>
+              <h3 class="text-white text-sm uppercase tracking-[0.15em] mb-5">Key Services</h3>
+              <ul data-modal-services class="grid grid-cols-2 gap-x-10 gap-y-3 mb-9"></ul>
 
               <div data-modal-optional>
-                <h3 class="text-white text-[11px] uppercase tracking-[0.15em] mb-2.5">Why Choose Us</h3>
-                <div data-modal-benefits class="grid grid-cols-2 gap-x-5 gap-y-1.5 mb-6"></div>
+                <h3 class="text-white text-sm uppercase tracking-[0.15em] mb-5">Why Choose Us</h3>
+                <div data-modal-benefits class="grid grid-cols-2 gap-x-10 gap-y-3 mb-10"></div>
               </div>
 
-              <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t border-white/10">
-                <button type="button" data-open-quote class="btn-gold inline-flex items-center justify-center px-7 py-3.5 text-xs font-semibold uppercase">
+              <div class="flex flex-col sm:flex-row gap-4 pt-7 border-t border-white/10">
+                <button type="button" data-open-quote class="btn-gold inline-flex items-center justify-center px-9 py-5 text-sm font-semibold uppercase">
                   Request a Quote
                 </button>
-                <a href="services.html" class="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-[0.1em] font-semibold text-white/60 hover:text-[#D8B44A] transition-colors px-2 py-3.5">
+                <a href="services.html" class="inline-flex items-center justify-center gap-2 text-sm uppercase tracking-[0.1em] font-semibold text-white/60 hover:text-[#D8B44A] transition-colors px-2 py-5">
                   View All Services
                 </a>
               </div>
@@ -118,20 +124,20 @@
               <form data-modal-quote-form novalidate>
                 <div class="grid sm:grid-cols-2 gap-3 mb-3">
                   <div>
-                    <input type="text" data-mq-name placeholder="Full Name *" class="w-full bg-transparent border border-white/20 text-white placeholder-white/40 px-3.5 py-2.5 text-sm focus:border-[#C9A227] outline-none transition-colors" />
+                    <input type="text" data-mq-name placeholder="Full Name *" class="w-full bg-white/[0.06] border border-white/25 text-white placeholder-white/45 px-3.5 py-3 text-sm focus:border-[#C9A227] focus:bg-white/[0.09] outline-none transition-colors" />
                     <p data-mq-error="name" class="text-red-400 text-[11px] mt-1 hidden" role="alert"></p>
                   </div>
                   <div>
-                    <input type="tel" data-mq-phone placeholder="Phone *" class="w-full bg-transparent border border-white/20 text-white placeholder-white/40 px-3.5 py-2.5 text-sm focus:border-[#C9A227] outline-none transition-colors" />
+                    <input type="tel" data-mq-phone placeholder="Phone *" class="w-full bg-white/[0.06] border border-white/25 text-white placeholder-white/45 px-3.5 py-3 text-sm focus:border-[#C9A227] focus:bg-white/[0.09] outline-none transition-colors" />
                     <p data-mq-error="phone" class="text-red-400 text-[11px] mt-1 hidden" role="alert"></p>
                   </div>
                 </div>
                 <div class="mb-3">
-                  <input type="email" data-mq-email placeholder="Email Address *" class="w-full bg-transparent border border-white/20 text-white placeholder-white/40 px-3.5 py-2.5 text-sm focus:border-[#C9A227] outline-none transition-colors" />
+                  <input type="email" data-mq-email placeholder="Email Address *" class="w-full bg-white/[0.06] border border-white/25 text-white placeholder-white/45 px-3.5 py-3 text-sm focus:border-[#C9A227] focus:bg-white/[0.09] outline-none transition-colors" />
                   <p data-mq-error="email" class="text-red-400 text-[11px] mt-1 hidden" role="alert"></p>
                 </div>
                 <div class="mb-4">
-                  <textarea data-mq-message rows="3" placeholder="Tell us about your project *" class="w-full bg-transparent border border-white/20 text-white placeholder-white/40 px-3.5 py-2.5 text-sm focus:border-[#C9A227] outline-none transition-colors resize-none"></textarea>
+                  <textarea data-mq-message rows="3" placeholder="Tell us about your project *" class="w-full bg-white/[0.06] border border-white/25 text-white placeholder-white/45 px-3.5 py-3 text-sm focus:border-[#C9A227] focus:bg-white/[0.09] outline-none transition-colors resize-none"></textarea>
                   <p data-mq-error="message" class="text-red-400 text-[11px] mt-1 hidden" role="alert"></p>
                 </div>
                 <button type="submit" class="btn-gold w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-3.5 text-xs font-semibold uppercase">
@@ -178,17 +184,21 @@
     const { panel } = modalRoot;
     panel.querySelector("[data-modal-image]").src = data.image.src;
     panel.querySelector("[data-modal-image]").alt = data.image.alt;
+    panel.querySelector("[data-modal-caption]").textContent = data.caption;
     panel.querySelector("[data-modal-eyebrow]").textContent = data.eyebrow;
     panel.querySelector("[data-modal-title]").textContent = data.title;
     panel.querySelector("[data-modal-description]").textContent = data.description;
     panel.querySelector("[data-quote-title]").textContent = data.eyebrow;
 
+    const quoteBtn = panel.querySelector("[data-open-quote]");
+    quoteBtn.hidden = key !== "cleaning";
+
     const servicesList = panel.querySelector("[data-modal-services]");
     servicesList.innerHTML = data.services
       .map(
         (s) => `
-        <li class="flex items-start gap-2 text-[#F7F6F2]/90 text-xs leading-snug">
-          <svg class="shrink-0 mt-0.5" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#C9A227" stroke-width="2.5" aria-hidden="true">
+        <li class="flex items-start gap-2.5 text-[#F7F6F2]/90 text-sm sm:text-base leading-snug">
+          <svg class="shrink-0 mt-1" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9A227" stroke-width="2.5" aria-hidden="true">
             <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
           <span>${s}</span>
@@ -200,8 +210,8 @@
     benefitsWrap.innerHTML = data.benefits
       .map(
         (b) => `
-        <div class="flex items-start gap-2 text-xs leading-snug">
-          <svg class="shrink-0 mt-0.5" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#D8B44A" stroke-width="2.5" aria-hidden="true">
+        <div class="flex items-start gap-2.5 text-sm sm:text-base leading-snug">
+          <svg class="shrink-0 mt-1" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D8B44A" stroke-width="2.5" aria-hidden="true">
             <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
           <span class="text-[#D8B44A] font-medium">${b}</span>

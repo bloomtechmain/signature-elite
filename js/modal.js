@@ -89,24 +89,24 @@
           <div data-modal-content class="relative flex flex-col justify-center min-h-0 h-full overflow-y-auto p-8 sm:p-10 lg:p-14 xl:p-16">
             <!-- DETAILS VIEW -->
             <div data-view="details" class="max-w-2xl">
-              <p data-modal-eyebrow class="eyebrow text-xs sm:text-sm uppercase mb-3"></p>
-              <h2 id="serviceModalTitle" data-modal-title class="font-serif text-3xl sm:text-4xl lg:text-5xl text-white leading-tight mb-4"></h2>
-              <div class="gold-rule mb-5"></div>
-              <p data-modal-description class="text-[#A5A5A5] text-sm sm:text-base leading-relaxed mb-6"></p>
+              <p data-modal-eyebrow class="eyebrow text-xs sm:text-sm uppercase mb-4"></p>
+              <h2 id="serviceModalTitle" data-modal-title class="font-serif text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-6"></h2>
+              <div class="gold-rule mb-6"></div>
+              <p data-modal-description class="text-[#A5A5A5] text-sm sm:text-base leading-relaxed mb-7"></p>
 
-              <h3 class="text-white text-xs uppercase tracking-[0.15em] mb-3">Key Services</h3>
-              <ul data-modal-services class="grid grid-cols-2 gap-x-8 gap-y-2 mb-6"></ul>
+              <h3 class="text-white text-xs uppercase tracking-[0.15em] mb-4">Key Services</h3>
+              <ul data-modal-services class="grid grid-cols-2 gap-x-10 gap-y-3 mb-7"></ul>
 
               <div data-modal-optional>
-                <h3 class="text-white text-xs uppercase tracking-[0.15em] mb-3">Why Choose Us</h3>
-                <div data-modal-benefits class="grid grid-cols-2 gap-x-8 gap-y-2 mb-7"></div>
+                <h3 class="text-white text-xs uppercase tracking-[0.15em] mb-4">Why Choose Us</h3>
+                <div data-modal-benefits class="grid grid-cols-2 gap-x-10 gap-y-3 mb-8"></div>
               </div>
 
-              <div class="flex flex-col sm:flex-row gap-3 pt-5 border-t border-white/10">
-                <button type="button" data-open-quote class="btn-gold inline-flex items-center justify-center px-7 py-3.5 text-xs font-semibold uppercase">
+              <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-white/10">
+                <button type="button" data-open-quote class="btn-gold inline-flex items-center justify-center px-8 py-4 text-sm font-semibold uppercase">
                   Request a Quote
                 </button>
-                <a href="services.html" class="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-[0.1em] font-semibold text-white/60 hover:text-[#D8B44A] transition-colors px-2 py-3.5">
+                <a href="services.html" class="inline-flex items-center justify-center gap-2 text-sm uppercase tracking-[0.1em] font-semibold text-white/60 hover:text-[#D8B44A] transition-colors px-2 py-4">
                   View All Services
                 </a>
               </div>

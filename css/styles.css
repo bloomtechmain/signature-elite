@@ -378,7 +378,7 @@ body.modal-open {
    collapses to a sliver while the row stays tall. A short but WIDE
    desktop window (browser zoom, OS display scaling) still hits the
    max-height condition, so width must gate these two rules. */
-@media (max-height: 860px) {
+@media (max-height: 920px) {
   .service-modal-card [data-modal-optional] {
     display: none;
   }
@@ -402,7 +402,7 @@ body.modal-open {
 /* Image-height cap belongs ONLY to the sub-md stacked layout (image row
    above content row) — never the md+ side-by-side layout, where the image
    must keep filling its column via md:h-full. */
-@media (max-height: 860px) and (max-width: 767px) {
+@media (max-height: 920px) and (max-width: 767px) {
   .service-modal-card [data-modal-image-wrap] {
     height: 64px;
   }

@@ -50,12 +50,12 @@ const SE_IMG = {
       alt: "Striking angular modern commercial building"
     },
     cleaning: {
-      src: "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=1400&q=80",
-      alt: "Pristine, freshly maintained modern kitchen"
+      src: "assets/logo/cleaning-logo.png",
+      alt: "Signature Elite Cleaning logo"
     },
     construction: {
-      src: "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&w=1400&q=80",
-      alt: "Workers on an active rebar construction site"
+      src: "assets/logo/construction-logo.png",
+      alt: "Signature Elite Construction logo"
     }
   },
   contact: {
@@ -71,14 +71,14 @@ const SE_IMG = {
   modal: {
     cleaning: {
       main: {
-        src: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1400&q=80",
-        alt: "Professional cleaner servicing a window in a modern space"
+        src: "assets/logo/cleaning-logo.png",
+        alt: "Signature Elite Cleaning logo"
       }
     },
     construction: {
       main: {
-        src: "https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&w=1400&q=80",
-        alt: "Interior of an active renovation and construction project"
+        src: "assets/logo/construction-logo.png",
+        alt: "Signature Elite Construction logo"
       }
     }
   }

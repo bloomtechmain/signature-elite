@@ -15,40 +15,39 @@
     cleaning: {
       eyebrow: "Signature Elite Cleaning",
       title: "Professional Cleaning Solutions",
-      logo: "assets/logo/cleaning-logo.png",
+      video: "assets/videos/cleaning-intro.mp4",
       image: SE_IMG.modal.cleaning.main,
       caption: "Cleaner spaces. Healthier environments. Brighter tomorrows.",
       description:
-        "Meticulous, reliable cleaning for commercial, residential and industrial spaces across Victoria — delivered by trained teams to a consistent, professional standard.",
+        "Professional cleaning services for commercial, residential and industrial spaces.",
       services: [
-        "Commercial & office cleaning",
-        "Residential cleaning",
-        "End-of-lease cleaning",
-        "Deep cleaning",
-        "Window cleaning",
-        "Carpet & upholstery",
-        "Sanitisation",
-        "Post-construction cleaning"
+        "Commercial & Office Cleaning",
+        "Residential Cleaning",
+        "End-of-Lease Cleaning",
+        "Deep Cleaning",
+        "Carpet & Upholstery Cleaning",
+        "Window Cleaning",
+        "Disinfection & Sanitisation",
+        "Post-Construction Cleaning"
       ],
       benefits: ["Trained & Vetted Staff", "Consistent Quality", "Flexible Scheduling", "Fully Insured"]
     },
     construction: {
       eyebrow: "Signature Elite Construction",
       title: "Professional Construction Solutions",
-      logo: "assets/logo/construction-logo.png",
+      video: "assets/videos/construction-intro.mp4",
       image: SE_IMG.modal.construction.main,
       caption: "Stronger foundations. Lasting structures. Built with precision.",
       description:
-        "Residential and commercial construction, renovation and property improvement delivered with precision, integrity and disciplined project management.",
+        "Quality construction solutions delivered with precision, integrity and attention to detail.",
       services: [
-        "Residential construction",
-        "Commercial construction",
-        "Renovations & extensions",
-        "Property improvements",
-        "Project management",
-        "Site maintenance",
-        "Fit-outs & refurbishments",
-        "Compliance & inspections"
+        "Residential Construction",
+        "Commercial Construction",
+        "Renovations",
+        "Extensions",
+        "Property Improvements",
+        "Project Management",
+        "Maintenance"
       ],
       benefits: ["Precision Delivery", "Licensed & Compliant", "Dedicated Project Management", "Quality Craftsmanship"]
     }
@@ -57,6 +56,81 @@
   let activeTriggerEl = null;
   let modalRoot = null;
   let currentKey = null;
+  let introRoot = null;
+
+  function buildIntro() {
+    const overlay = document.createElement("div");
+    overlay.className = "service-intro-overlay fixed inset-0 z-[110] bg-black opacity-0 pointer-events-none transition-opacity duration-300";
+    overlay.setAttribute("data-intro-overlay", "");
+
+    overlay.innerHTML = `
+      <div class="relative w-full h-full flex items-center justify-center">
+        <div data-intro-frame class="relative" style="width:min(100vw, 177.78vh); height:min(100vh, 56.25vw);">
+          <video data-intro-video class="w-full h-full object-contain block" playsinline></video>
+
+          <!-- Blurs out the source video's baked-in watermark (bottom-right
+               sparkle icon) without needing to re-encode the file. -->
+          <div class="absolute pointer-events-none" style="right:5%; bottom:3%; width:11%; height:17%; backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);"></div>
+        </div>
+
+        <button type="button" data-intro-skip aria-label="Skip intro"
+          class="absolute top-4 right-4 sm:top-6 sm:right-6 inline-flex items-center gap-2 text-white/70 hover:text-[#D8B44A] text-xs uppercase tracking-[0.1em] transition-colors px-4 py-2 border border-white/25 hover:border-[#D8B44A]/60">
+          Skip
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+      </div>
+    `;
+
+    document.body.appendChild(overlay);
+    return { overlay, video: overlay.querySelector("[data-intro-video]") };
+  }
+
+  function playIntro(key, triggerEl) {
+    const data = SERVICE_DATA[key];
+    if (!data) return;
+
+    if (!data.video) {
+      openModal(key, triggerEl);
+      return;
+    }
+
+    if (!introRoot) introRoot = buildIntro();
+    const { overlay, video } = introRoot;
+
+    const finish = () => {
+      video.removeEventListener("ended", finish);
+      overlay.querySelector("[data-intro-skip]").removeEventListener("click", finish);
+      document.removeEventListener("keydown", onKeydown);
+      overlay.classList.remove("opacity-100");
+      overlay.classList.add("opacity-0", "pointer-events-none");
+      video.pause();
+      video.removeAttribute("src");
+      video.load();
+      openModal(key, triggerEl);
+    };
+
+    function onKeydown(e) {
+      if (e.key === "Escape") finish();
+    }
+
+    video.src = data.video;
+    video.currentTime = 0;
+    video.muted = false;
+    video.addEventListener("ended", finish);
+    overlay.querySelector("[data-intro-skip]").addEventListener("click", finish);
+    document.addEventListener("keydown", onKeydown);
+
+    overlay.classList.remove("opacity-0", "pointer-events-none");
+    overlay.classList.add("opacity-100");
+
+    const playPromise = video.play();
+    if (playPromise && playPromise.catch) {
+      playPromise.catch(() => {
+        video.muted = true;
+        video.play().catch(() => finish());
+      });
+    }
+  }
 
   function buildModal() {
     const overlay = document.createElement("div");
@@ -79,8 +153,8 @@
         </button>
 
         <div class="grid md:grid-cols-[2fr_3fr] h-full">
-          <div data-modal-image-wrap class="relative h-40 sm:h-56 md:h-full shrink-0">
-            <img data-modal-image src="" alt="" class="w-full h-full object-cover" />
+          <div data-modal-image-wrap class="relative h-40 sm:h-56 md:h-full shrink-0 bg-black flex items-center justify-center">
+            <img data-modal-image src="" alt="" class="max-w-[65%] max-h-[70%] w-auto h-auto object-contain" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent"></div>
             <div class="absolute left-6 right-6 bottom-6 md:left-8 md:right-8 md:bottom-8">
               <div class="w-8 h-px bg-gold mb-3"></div>
@@ -91,7 +165,7 @@
           <div data-modal-content class="relative flex flex-col justify-center min-h-0 h-full overflow-y-auto p-8 sm:p-10 lg:p-14 xl:p-16">
             <!-- DETAILS VIEW -->
             <div data-view="details" class="max-w-2xl">
-              <img data-modal-logo src="" alt="" class="h-24 sm:h-28 w-auto object-contain mb-5" />
+              <p data-modal-eyebrow class="eyebrow text-xs sm:text-sm uppercase mb-4"></p>
               <h2 id="serviceModalTitle" data-modal-title class="font-serif text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-6"></h2>
               <div class="gold-rule mb-6"></div>
               <p data-modal-description class="text-[#A5A5A5] text-sm sm:text-base leading-relaxed mb-7"></p>
@@ -187,8 +261,7 @@
     panel.querySelector("[data-modal-image]").src = data.image.src;
     panel.querySelector("[data-modal-image]").alt = data.image.alt;
     panel.querySelector("[data-modal-caption]").textContent = data.caption;
-    panel.querySelector("[data-modal-logo]").src = data.logo;
-    panel.querySelector("[data-modal-logo]").alt = data.eyebrow + " logo";
+    panel.querySelector("[data-modal-eyebrow]").textContent = data.eyebrow;
     panel.querySelector("[data-modal-title]").textContent = data.title;
     panel.querySelector("[data-modal-description]").textContent = data.description;
     panel.querySelector("[data-quote-title]").textContent = data.eyebrow;
@@ -341,7 +414,7 @@
       const trigger = e.target.closest("[data-service-modal]");
       if (trigger) {
         e.preventDefault();
-        openModal(trigger.getAttribute("data-service-modal"), trigger);
+        playIntro(trigger.getAttribute("data-service-modal"), trigger);
         return;
       }
 

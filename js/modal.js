@@ -15,6 +15,7 @@
     cleaning: {
       eyebrow: "Signature Elite Cleaning",
       title: "Professional Cleaning Solutions",
+      logo: "assets/logo/cleaning-logo.png",
       image: SE_IMG.modal.cleaning.main,
       caption: "Cleaner spaces. Healthier environments. Brighter tomorrows.",
       description:
@@ -34,6 +35,7 @@
     construction: {
       eyebrow: "Signature Elite Construction",
       title: "Professional Construction Solutions",
+      logo: "assets/logo/construction-logo.png",
       image: SE_IMG.modal.construction.main,
       caption: "Stronger foundations. Lasting structures. Built with precision.",
       description:
@@ -89,7 +91,7 @@
           <div data-modal-content class="relative flex flex-col justify-center min-h-0 h-full overflow-y-auto p-8 sm:p-10 lg:p-14 xl:p-16">
             <!-- DETAILS VIEW -->
             <div data-view="details" class="max-w-2xl">
-              <p data-modal-eyebrow class="eyebrow text-xs sm:text-sm uppercase mb-4"></p>
+              <img data-modal-logo src="" alt="" class="h-24 sm:h-28 w-auto object-contain mb-5" />
               <h2 id="serviceModalTitle" data-modal-title class="font-serif text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-6"></h2>
               <div class="gold-rule mb-6"></div>
               <p data-modal-description class="text-[#A5A5A5] text-sm sm:text-base leading-relaxed mb-7"></p>
@@ -185,7 +187,8 @@
     panel.querySelector("[data-modal-image]").src = data.image.src;
     panel.querySelector("[data-modal-image]").alt = data.image.alt;
     panel.querySelector("[data-modal-caption]").textContent = data.caption;
-    panel.querySelector("[data-modal-eyebrow]").textContent = data.eyebrow;
+    panel.querySelector("[data-modal-logo]").src = data.logo;
+    panel.querySelector("[data-modal-logo]").alt = data.eyebrow + " logo";
     panel.querySelector("[data-modal-title]").textContent = data.title;
     panel.querySelector("[data-modal-description]").textContent = data.description;
     panel.querySelector("[data-quote-title]").textContent = data.eyebrow;

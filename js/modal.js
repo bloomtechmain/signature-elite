@@ -15,7 +15,6 @@
     cleaning: {
       eyebrow: "Signature Elite Cleaning",
       title: "Professional Cleaning Solutions",
-      video: "assets/videos/cleaning-intro.mp4",
       image: SE_IMG.modal.cleaning.main,
       caption: "Cleaner spaces. Healthier environments. Brighter tomorrows.",
       description:
@@ -35,7 +34,6 @@
     construction: {
       eyebrow: "Signature Elite Construction",
       title: "Professional Construction Solutions",
-      video: "assets/videos/construction-intro.mp4",
       image: SE_IMG.modal.construction.main,
       caption: "Stronger foundations. Lasting structures. Built with precision.",
       description:
@@ -56,81 +54,6 @@
   let activeTriggerEl = null;
   let modalRoot = null;
   let currentKey = null;
-  let introRoot = null;
-
-  function buildIntro() {
-    const overlay = document.createElement("div");
-    overlay.className = "service-intro-overlay fixed inset-0 z-[110] bg-black opacity-0 pointer-events-none transition-opacity duration-300";
-    overlay.setAttribute("data-intro-overlay", "");
-
-    overlay.innerHTML = `
-      <div class="relative w-full h-full flex items-center justify-center">
-        <div data-intro-frame class="relative" style="width:min(100vw, 177.78vh); height:min(100vh, 56.25vw);">
-          <video data-intro-video class="w-full h-full object-contain block" playsinline></video>
-
-          <!-- Blurs out the source video's baked-in watermark (bottom-right
-               sparkle icon) without needing to re-encode the file. -->
-          <div class="absolute pointer-events-none" style="right:5%; bottom:3%; width:11%; height:17%; backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);"></div>
-        </div>
-
-        <button type="button" data-intro-skip aria-label="Skip intro"
-          class="absolute top-4 right-4 sm:top-6 sm:right-6 inline-flex items-center gap-2 text-white/70 hover:text-[#D8B44A] text-xs uppercase tracking-[0.1em] transition-colors px-4 py-2 border border-white/25 hover:border-[#D8B44A]/60">
-          Skip
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-        </button>
-      </div>
-    `;
-
-    document.body.appendChild(overlay);
-    return { overlay, video: overlay.querySelector("[data-intro-video]") };
-  }
-
-  function playIntro(key, triggerEl) {
-    const data = SERVICE_DATA[key];
-    if (!data) return;
-
-    if (!data.video) {
-      openModal(key, triggerEl);
-      return;
-    }
-
-    if (!introRoot) introRoot = buildIntro();
-    const { overlay, video } = introRoot;
-
-    const finish = () => {
-      video.removeEventListener("ended", finish);
-      overlay.querySelector("[data-intro-skip]").removeEventListener("click", finish);
-      document.removeEventListener("keydown", onKeydown);
-      overlay.classList.remove("opacity-100");
-      overlay.classList.add("opacity-0", "pointer-events-none");
-      video.pause();
-      video.removeAttribute("src");
-      video.load();
-      openModal(key, triggerEl);
-    };
-
-    function onKeydown(e) {
-      if (e.key === "Escape") finish();
-    }
-
-    video.src = data.video;
-    video.currentTime = 0;
-    video.muted = false;
-    video.addEventListener("ended", finish);
-    overlay.querySelector("[data-intro-skip]").addEventListener("click", finish);
-    document.addEventListener("keydown", onKeydown);
-
-    overlay.classList.remove("opacity-0", "pointer-events-none");
-    overlay.classList.add("opacity-100");
-
-    const playPromise = video.play();
-    if (playPromise && playPromise.catch) {
-      playPromise.catch(() => {
-        video.muted = true;
-        video.play().catch(() => finish());
-      });
-    }
-  }
 
   function buildModal() {
     const overlay = document.createElement("div");
@@ -156,7 +79,7 @@
           <div data-modal-image-wrap class="relative h-40 sm:h-56 md:h-full shrink-0 bg-black flex items-center justify-center">
             <img data-modal-image src="" alt="" class="max-w-[65%] max-h-[70%] w-auto h-auto object-contain" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent"></div>
-            <div class="absolute left-6 right-6 bottom-6 md:left-8 md:right-8 md:bottom-8">
+            <div data-modal-caption-wrap class="absolute left-6 right-6 bottom-6 md:left-8 md:right-8 md:bottom-8">
               <div class="w-8 h-px bg-gold mb-3"></div>
               <p data-modal-caption class="text-white text-sm sm:text-base font-serif italic leading-snug"></p>
             </div>
@@ -414,7 +337,7 @@
       const trigger = e.target.closest("[data-service-modal]");
       if (trigger) {
         e.preventDefault();
-        playIntro(trigger.getAttribute("data-service-modal"), trigger);
+        openModal(trigger.getAttribute("data-service-modal"), trigger);
         return;
       }
 

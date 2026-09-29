@@ -93,6 +93,16 @@ html, body { max-width: 100%; }
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
 }
 
+/* Lighter-alpha variant for panels that overlap a photo/logo edge — lets the
+   blurred image show through so the overlap reads as glass, not a solid cut. */
+.panel-frosted-light-blend {
+  background: rgba(247, 246, 242, 0.22);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(8, 8, 8, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
 /* Architectural framing motif — thin corner brackets, used sparingly */
 .corner-frame {
   position: relative;
@@ -117,6 +127,13 @@ html, body { max-width: 100%; }
   right: -1px;
   border-left: none;
   border-top: none;
+}
+
+/* Soft vignette mask — dissolves a video/image's edges into whatever sits
+   behind it, so it reads as one blended scene rather than a hard-edged card */
+.fade-frame {
+  -webkit-mask-image: radial-gradient(ellipse 62% 62% at center, #000 38%, rgba(0, 0, 0, 0.55) 62%, transparent 94%);
+  mask-image: radial-gradient(ellipse 62% 62% at center, #000 38%, rgba(0, 0, 0, 0.55) 62%, transparent 94%);
 }
 
 /* Faint oversized numeral — About timeline / Services division markers */
@@ -192,16 +209,22 @@ select:focus-visible,
 .img-zoom {
   overflow: hidden;
 }
-.img-zoom img {
+.img-zoom img,
+.img-zoom video {
   transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.img-zoom:hover img {
+.img-zoom:hover img,
+.img-zoom:hover video {
   transform: scale(1.06);
 }
 
 /* ---------------------------------------------------------------------
    Header
    --------------------------------------------------------------------- */
+.brand-logo {
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 10px rgba(0, 0, 0, 0.4));
+}
+
 .site-header {
   background-color: rgba(8, 8, 8, 0.08);
   backdrop-filter: blur(6px);
@@ -406,6 +429,11 @@ body.modal-open {
   .service-modal-card [data-modal-image-wrap] {
     height: 64px;
   }
+  /* No room for the caption at this height — it would overlap the close
+     button and the shrunken logo thumbnail. */
+  .service-modal-card [data-modal-caption-wrap] {
+    display: none;
+  }
 }
 
 /* ---------------------------------------------------------------------
@@ -418,8 +446,8 @@ body.modal-open {
     transform: none;
     transition: none;
   }
-  .img-zoom img { transition: none; }
-  .img-zoom:hover img { transform: none; }
+  .img-zoom img, .img-zoom video { transition: none; }
+  .img-zoom:hover img, .img-zoom:hover video { transform: none; }
   .service-modal-card,
   .service-modal-overlay,
   .service-modal-panel,

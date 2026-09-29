@@ -20,14 +20,6 @@ const SE_IMG = {
     intro: {
       src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=80",
       alt: "Bright, minimal corporate office interior"
-    },
-    cleaning: {
-      src: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1400&q=80",
-      alt: "Professional cleaner servicing a window in a modern space"
-    },
-    construction: {
-      src: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1400&q=80",
-      alt: "Aerial view of workers on an active concrete construction site"
     }
   },
   about: {

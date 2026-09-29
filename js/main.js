@@ -99,6 +99,29 @@
   }
 
   /* ---------------------------------------------------------------------
+     Hover-to-play service videos — muted showreel plays only while the
+     cursor is over its card; resets to the poster frame on leave.
+     --------------------------------------------------------------------- */
+  function initHoverVideos() {
+    const wraps = document.querySelectorAll("[data-hover-video-wrap]");
+    if (!wraps.length) return;
+
+    wraps.forEach((wrap) => {
+      const video = wrap.querySelector("[data-hover-video]");
+      if (!video) return;
+
+      wrap.addEventListener("mouseenter", () => {
+        video.currentTime = 0;
+        video.play().catch(() => {});
+      });
+      wrap.addEventListener("mouseleave", () => {
+        video.pause();
+        video.currentTime = 0;
+      });
+    });
+  }
+
+  /* ---------------------------------------------------------------------
      Footer year
      --------------------------------------------------------------------- */
   function initFooterYear() {
@@ -145,6 +168,7 @@
     initHeaderScroll();
     initMobileNav();
     initScrollReveal();
+    initHoverVideos();
     initFooterYear();
     initHeroParallax();
   });

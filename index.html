@@ -11,7 +11,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -24,12 +24,14 @@
             charcoal: '#1A1A1A',
             gold: '#C9A227',
             'gold-light': '#D8B44A',
-            'warm-white': '#F7F6F2',
+            'warm-white': '#FFFFFF',
             muted: '#A5A5A5'
           },
           fontFamily: {
             serif: ['Playfair Display', 'Georgia', 'serif'],
-            sans: ['Inter', 'system-ui', 'sans-serif']
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            heading: ['Poppins', 'system-ui', 'sans-serif'],
+            classic: ['"Times New Roman"', 'Times', 'serif']
           }
         }
       }
@@ -62,6 +64,7 @@
             </div>
           </div>
         </div>
+        <a href="index.html#our-work" class="nav-link text-white/85 text-xs uppercase pb-1 inline-flex items-center">Our Work</a>
         <a href="contact.html" class="nav-link text-white/85 text-xs uppercase pb-1 inline-flex items-center">Contact</a>
       </nav>
 
@@ -87,25 +90,24 @@
       <a href="index.html" class="text-white font-serif text-3xl py-4 border-b border-white/10">Home</a>
       <a href="about.html" class="text-white font-serif text-3xl py-4 border-b border-white/10">About</a>
       <a href="services.html" class="text-white font-serif text-3xl py-4 border-b border-white/10">Services</a>
+      <a href="index.html#our-work" class="text-white font-serif text-3xl py-4 border-b border-white/10">Our Work</a>
       <a href="contact.html" class="text-white font-serif text-3xl py-4 border-b border-white/10">Contact</a>
     </nav>
   </div>
 
   <main id="main">
     <!-- ============================= HERO ============================= -->
-    <section class="relative min-h-[92vh] w-full flex items-end overflow-hidden">
-      <div class="absolute inset-0 flex flex-col">
-        <div class="relative w-full h-full overflow-hidden">
-          <img src="assets/images/hero-bg.jpg" alt="Signature Elite Group logo faded into a view of modern glass commercial towers" class="absolute inset-0 w-full h-full object-cover" />
-        </div>
-      </div>
-      <div class="absolute inset-0 bg-gradient-to-t from-ink/60 via-ink/35 to-ink/20"></div>
-      <div class="absolute inset-0 bg-ink/10"></div>
+    <section class="relative min-h-[92vh] w-full flex items-end overflow-hidden bg-ink">
+      <video autoplay muted loop playsinline preload="auto" poster="assets/images/hero-entrance-poster.jpg" class="absolute inset-y-0 right-0 w-full sm:w-[72%] lg:w-[62%] h-full object-cover" style="object-position: center 38%;" aria-label="Signature Elite Group illuminated sign at the building entrance">
+        <source src="assets/videos/hero-entrance.mp4" type="video/mp4" />
+      </video>
+      <div class="absolute inset-y-0 left-0 w-full sm:w-[55%] lg:w-[45%] bg-gradient-to-r from-ink via-ink/85 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-ink/60 via-ink/20 to-ink/10"></div>
 
-      <div class="relative z-10 max-w-7xl mx-auto w-full px-6 sm:px-8 lg:px-10 xl:px-12 pt-32 lg:pt-36 pb-16 sm:pb-20 flex flex-col lg:flex-row lg:items-end lg:justify-end gap-10">
+      <div class="relative z-10 max-w-7xl mx-auto w-full px-6 sm:px-8 lg:px-10 xl:px-12 pt-32 lg:pt-36 pb-16 sm:pb-20 flex flex-col lg:flex-row lg:items-end lg:justify-start gap-10">
         <div data-hero-panel class="panel-frosted-dark corner-frame max-w-2xl px-7 py-9 sm:px-10 sm:py-12 reveal">
           <p class="eyebrow text-xs sm:text-sm uppercase mb-6">Signature Elite Group</p>
-          <h1 class="font-serif text-white text-3xl sm:text-5xl lg:text-6xl leading-[1.1]">
+          <h1 class="font-classic font-normal text-white text-3xl sm:text-5xl lg:text-6xl leading-[1.1]">
             Building Clean.<br />Building Better.<br /><span class="text-gold-light">Building Tomorrow.</span>
           </h1>
           <p class="text-white/75 max-w-xl mt-7 text-base sm:text-lg leading-relaxed">
@@ -152,8 +154,10 @@
     </section>
 
     <!-- ============================= SERVICES ============================= -->
-    <section class="bg-ink py-24 sm:py-32">
-      <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 xl:px-12">
+    <section class="relative bg-gradient-to-br from-[#4A7098] via-[#2F4C68] to-[#1B2E42] py-24 sm:py-32 overflow-hidden">
+      <div class="pointer-events-none absolute -top-24 -right-24 w-[420px] h-[420px] rounded-full bg-gold/10 blur-3xl"></div>
+      <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-white/5"></div>
+      <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 xl:px-12">
         <div class="max-w-2xl mb-16 reveal">
           <p class="eyebrow text-xs uppercase mb-5">Our Expertise</p>
           <h2 class="font-serif text-white text-3xl sm:text-4xl lg:text-5xl leading-tight">Two Disciplines. One Standard.</h2>
@@ -203,6 +207,91 @@
               </button>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= OUR WORK ============================= -->
+    <section id="our-work" class="relative bg-gradient-to-br from-[#4A7098] via-[#2F4C68] to-[#1B2E42] py-24 sm:py-32 overflow-hidden">
+      <div class="pointer-events-none absolute -bottom-24 -right-24 w-[420px] h-[420px] rounded-full bg-gold/10 blur-3xl"></div>
+      <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 xl:px-12">
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-16 reveal">
+          <div class="max-w-2xl">
+            <p class="eyebrow text-xs uppercase mb-5">Our Work</p>
+            <h2 class="font-serif text-white text-3xl sm:text-4xl lg:text-5xl leading-tight">Excellence You Can See.</h2>
+          </div>
+          <a href="services.html" class="btn-outline inline-flex items-center gap-3 px-7 py-3.5 text-xs font-semibold uppercase self-start">
+            View Our Services
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 auto-rows-[160px] sm:auto-rows-[190px] lg:auto-rows-[210px]">
+          <div class="group relative col-span-2 row-span-2 overflow-hidden reveal">
+            <img src="assets/images/work/commercial-cleaning.jpg" alt="Window cleaning technicians working on a high-rise commercial building facade" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"></div>
+            <div class="absolute inset-0 border border-white/0 group-hover:border-gold/50 transition-colors duration-500"></div>
+            <p class="absolute bottom-5 left-5 sm:bottom-6 sm:left-6 text-white text-sm sm:text-base font-semibold uppercase tracking-wide">Commercial Cleaning</p>
+          </div>
+
+          <div class="group relative overflow-hidden reveal reveal-delay-1">
+            <img src="assets/images/work/office-cleaning.jpg" alt="Cleaning technician wiping down a glass surface" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent"></div>
+            <div class="absolute inset-0 border border-white/0 group-hover:border-gold/50 transition-colors duration-500"></div>
+            <p class="absolute bottom-4 left-4 text-white text-xs sm:text-sm font-semibold uppercase tracking-wide">Office Cleaning</p>
+          </div>
+
+          <div class="group relative overflow-hidden reveal reveal-delay-1">
+            <img src="assets/images/work/construction.jpg" alt="Construction crew working on an industrial building site" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent"></div>
+            <div class="absolute inset-0 border border-white/0 group-hover:border-gold/50 transition-colors duration-500"></div>
+            <p class="absolute bottom-4 left-4 text-white text-xs sm:text-sm font-semibold uppercase tracking-wide">Construction</p>
+          </div>
+
+          <div class="group relative overflow-hidden reveal reveal-delay-2">
+            <img src="assets/images/work/renovations.jpg" alt="Renovated modern kitchen with granite countertop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent"></div>
+            <div class="absolute inset-0 border border-white/0 group-hover:border-gold/50 transition-colors duration-500"></div>
+            <p class="absolute bottom-4 left-4 text-white text-xs sm:text-sm font-semibold uppercase tracking-wide">Renovations</p>
+          </div>
+
+          <div class="group relative overflow-hidden reveal reveal-delay-2">
+            <img src="assets/images/work/property-maintenance.jpg" alt="Groundskeeper maintaining a landscaped property" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent"></div>
+            <div class="absolute inset-0 border border-white/0 group-hover:border-gold/50 transition-colors duration-500"></div>
+            <p class="absolute bottom-4 left-4 text-white text-xs sm:text-sm font-semibold uppercase tracking-wide">Property Maintenance</p>
+          </div>
+
+          <div class="group relative col-span-2 overflow-hidden reveal reveal-delay-3">
+            <img src="assets/images/work/completed-projects.jpg" alt="Completed modern commercial building exterior at night" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"></div>
+            <div class="absolute inset-0 border border-white/0 group-hover:border-gold/50 transition-colors duration-500"></div>
+            <p class="absolute bottom-4 left-4 sm:bottom-5 sm:left-5 text-white text-sm sm:text-base font-semibold uppercase tracking-wide">Completed Projects</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= CTA BAND ============================= -->
+    <section class="bg-warm-white py-16 sm:py-20">
+      <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 xl:px-12 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
+        <div class="max-w-xl reveal">
+          <p class="eyebrow text-xs uppercase mb-5">Ready to Get Started?</p>
+          <h2 class="font-serif text-ink-soft text-3xl sm:text-4xl lg:text-5xl leading-tight">
+            Let's Build Something Extraordinary Together.
+          </h2>
+        </div>
+        <div class="max-w-md lg:max-w-sm reveal reveal-delay-1">
+          <p class="text-muted leading-relaxed mb-8">
+            Whether you need professional cleaning or a reliable construction partner, Signature Elite Group is ready to help.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="contact.html#quote-form" class="inline-flex items-center justify-center gap-3 px-8 py-4 text-xs font-semibold uppercase bg-ink-soft text-white hover:bg-ink transition-colors">
+              Get a Free Quote
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="contact.html" class="btn-outline-dark inline-flex items-center justify-center px-8 py-4 text-xs font-semibold uppercase">Contact Us</a>
+          </div>
         </div>
       </div>
     </section>

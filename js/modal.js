@@ -103,7 +103,7 @@
 
               <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-white/10">
                 <button type="button" data-open-quote class="btn-gold inline-flex items-center justify-center px-8 py-4 text-sm font-semibold uppercase">
-                  Request a Quote
+                  Enquire Now
                 </button>
                 <a href="services.html" class="inline-flex items-center justify-center gap-2 text-sm uppercase tracking-[0.1em] font-semibold text-white/60 hover:text-[#D8B44A] transition-colors px-2 py-4">
                   View All Services
@@ -136,11 +136,11 @@
                   <p data-mq-error="email" class="text-red-400 text-[11px] mt-1 hidden" role="alert"></p>
                 </div>
                 <div class="mb-4">
-                  <textarea data-mq-message rows="3" placeholder="Tell us about your project *" class="w-full bg-white/[0.06] border border-white/25 text-white placeholder-white/45 px-3.5 py-3 text-sm focus:border-[#C9A227] focus:bg-white/[0.09] outline-none transition-colors resize-none"></textarea>
+                  <textarea data-mq-message rows="3" placeholder="Additional notes about your tasks *" class="w-full bg-white/[0.06] border border-white/25 text-white placeholder-white/45 px-3.5 py-3 text-sm focus:border-[#C9A227] focus:bg-white/[0.09] outline-none transition-colors resize-none"></textarea>
                   <p data-mq-error="message" class="text-red-400 text-[11px] mt-1 hidden" role="alert"></p>
                 </div>
                 <button type="submit" class="btn-gold w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-3.5 text-xs font-semibold uppercase">
-                  Submit Request
+                  Contact Us Now
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </button>
               </form>

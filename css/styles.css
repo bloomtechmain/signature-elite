@@ -11,7 +11,7 @@
   --se-charcoal: #1A1A1A;
   --se-gold: #C9A227;
   --se-gold-light: #D8B44A;
-  --se-warm-white: #F7F6F2;
+  --se-warm-white: #FFFFFF;
   --se-white: #FFFFFF;
   --se-gray: #A5A5A5;
 }
@@ -233,10 +233,10 @@ select:focus-visible,
   transition: background-color 0.4s ease, border-color 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease;
 }
 .site-header.is-scrolled {
-  background-color: rgba(8, 8, 8, 0.86);
-  backdrop-filter: blur(18px) saturate(150%);
-  -webkit-backdrop-filter: blur(18px) saturate(150%);
-  border-bottom-color: rgba(201, 162, 39, 0.3);
+  background-color: rgba(8, 8, 8, 0.08);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 
 .nav-link {
@@ -271,7 +271,7 @@ select:focus-visible,
 }
 
 .site-footer {
-  background: rgba(10, 10, 10, 0.94);
+  background: rgba(8, 8, 8, 0.94);
 }
 .footer-col:not(:first-child) {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -341,7 +341,7 @@ select:focus-visible,
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: rgba(5, 5, 5, 0.5);
+  background: rgba(8, 8, 8, 0.5);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   opacity: 0;
@@ -374,7 +374,7 @@ select:focus-visible,
    it already does most of the work of keeping content legible, letting
    the card itself lean into "glass" rather than "panel". */
 .service-modal-card {
-  background: rgba(10, 10, 10, 0.4);
+  background: rgba(8, 8, 8, 0.4);
   backdrop-filter: blur(22px) saturate(160%);
   -webkit-backdrop-filter: blur(22px) saturate(160%);
   border: 1px solid rgba(201, 162, 39, 0.25);

@@ -24,7 +24,7 @@
             charcoal: '#1A1A1A',
             gold: '#C9A227',
             'gold-light': '#D8B44A',
-            'warm-white': '#F7F6F2',
+            'warm-white': '#FFFFFF',
             muted: '#A5A5A5'
           },
           fontFamily: {
@@ -62,6 +62,7 @@
             </div>
           </div>
         </div>
+        <a href="index.html#our-work" class="nav-link text-white/85 text-xs uppercase pb-1 inline-flex items-center">Our Work</a>
         <a href="contact.html" class="nav-link is-active text-white text-xs uppercase pb-1 inline-flex items-center" aria-current="page">Contact</a>
       </nav>
 
@@ -87,6 +88,7 @@
       <a href="index.html" class="text-white font-serif text-3xl py-4 border-b border-white/10">Home</a>
       <a href="about.html" class="text-white font-serif text-3xl py-4 border-b border-white/10">About</a>
       <a href="services.html" class="text-white font-serif text-3xl py-4 border-b border-white/10">Services</a>
+      <a href="index.html#our-work" class="text-white font-serif text-3xl py-4 border-b border-white/10">Our Work</a>
       <a href="contact.html" class="text-gold-light font-serif text-3xl py-4 border-b border-white/10">Contact</a>
     </nav>
   </div>
@@ -109,11 +111,11 @@
 
     <!-- ============================= CONTACT ============================= -->
     <section class="relative bg-warm-white py-24 sm:py-32">
-      <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 xl:px-12">
-        <div class="panel-frame-light max-w-2xl mx-auto p-8 sm:p-12 lg:p-16 reveal">
-          <p class="eyebrow text-xs uppercase mb-5 text-center">Contact Information</p>
-          <h2 class="font-serif text-ink-soft text-3xl sm:text-4xl leading-tight mb-8 text-center">We'd Love to Hear From You.</h2>
-          <div class="gold-rule mx-auto mb-10"></div>
+      <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 xl:px-12 grid lg:grid-cols-5 gap-12 lg:gap-16 items-stretch">
+        <div class="panel-frame-light lg:col-span-2 p-8 sm:p-12 reveal">
+          <p class="eyebrow text-xs uppercase mb-5">Contact Information</p>
+          <h2 class="font-serif text-ink-soft text-3xl sm:text-4xl leading-tight mb-8">We'd Love to Hear From You.</h2>
+          <div class="gold-rule mb-10"></div>
 
           <ul class="divide-y divide-ink/10">
             <li class="flex items-start gap-4 py-5 first:pt-0">
@@ -153,6 +155,53 @@
               </div>
             </li>
           </ul>
+        </div>
+
+        <div id="quote-form" class="panel-frame-light lg:col-span-3 p-8 sm:p-12 reveal reveal-delay-1 scroll-mt-32">
+          <p class="eyebrow text-xs uppercase mb-5">Request a Quote</p>
+          <h2 class="font-serif text-ink-soft text-3xl sm:text-4xl leading-tight mb-8">Tell Us About Your Project.</h2>
+          <div class="gold-rule mb-10"></div>
+
+          <form action="mailto:info@signatureelitegroup.com.au" method="post" enctype="text/plain" class="grid sm:grid-cols-2 gap-x-6 gap-y-7">
+            <div class="sm:col-span-1">
+              <label for="quote-name" class="block text-xs uppercase tracking-wide text-muted mb-2">Full Name</label>
+              <input type="text" id="quote-name" name="Full Name" required class="w-full bg-transparent border-b border-ink/20 py-2.5 text-ink-soft placeholder-muted/60 focus:outline-none focus:border-gold transition-colors" placeholder="Jane Smith" />
+            </div>
+            <div class="sm:col-span-1">
+              <label for="quote-email" class="block text-xs uppercase tracking-wide text-muted mb-2">Email Address</label>
+              <input type="email" id="quote-email" name="Email" required class="w-full bg-transparent border-b border-ink/20 py-2.5 text-ink-soft placeholder-muted/60 focus:outline-none focus:border-gold transition-colors" placeholder="jane@email.com" />
+            </div>
+            <div class="sm:col-span-1">
+              <label for="quote-phone" class="block text-xs uppercase tracking-wide text-muted mb-2">Phone Number</label>
+              <input type="tel" id="quote-phone" name="Phone" class="w-full bg-transparent border-b border-ink/20 py-2.5 text-ink-soft placeholder-muted/60 focus:outline-none focus:border-gold transition-colors" placeholder="+61 4XX XXX XXX" />
+            </div>
+            <div class="sm:col-span-1">
+              <label for="quote-service" class="block text-xs uppercase tracking-wide text-muted mb-2">Service Needed</label>
+              <div class="relative">
+                <select id="quote-service" name="Service Needed" required class="appearance-none w-full bg-transparent border-b border-ink/20 py-2.5 pr-8 text-ink-soft focus:outline-none focus:border-gold transition-colors">
+                  <option value="" disabled selected>Select a service</option>
+                  <option>Residential Cleaning</option>
+                  <option>Commercial &amp; Office Cleaning</option>
+                  <option>End of Lease Cleaning</option>
+                  <option>Builders &amp; Post-Construction</option>
+                  <option>Airbnb &amp; Holiday Rental</option>
+                  <option>Deep Cleaning</option>
+                  <option>Window Cleaning</option>
+                  <option>Carpet &amp; Upholstery Cleaning</option>
+                  <option>Tile &amp; Grout Cleaning</option>
+                  <option>Move In / Move Out</option>
+                </select>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="pointer-events-none absolute right-1 top-1/2 -translate-y-1/2 text-muted" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </div>
+            </div>
+            <div class="sm:col-span-2">
+              <label for="quote-message" class="block text-xs uppercase tracking-wide text-muted mb-2">Project Details</label>
+              <textarea id="quote-message" name="Project Details" rows="4" class="w-full bg-transparent border-b border-ink/20 py-2.5 text-ink-soft placeholder-muted/60 focus:outline-none focus:border-gold transition-colors resize-none" placeholder="Tell us a little about what you need..."></textarea>
+            </div>
+            <div class="sm:col-span-2 mt-2">
+              <button type="submit" class="inline-flex items-center justify-center px-8 py-4 text-xs font-semibold uppercase bg-ink-soft text-white hover:bg-ink transition-colors">Submit Request</button>
+            </div>
+          </form>
         </div>
       </div>
     </section>

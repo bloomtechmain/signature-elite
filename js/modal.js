@@ -20,14 +20,14 @@
       description:
         "Professional cleaning services for commercial, residential and industrial spaces.",
       services: [
-        "Commercial & Office Cleaning",
         "Residential Cleaning",
-        "End-of-Lease Cleaning",
-        "Deep Cleaning",
-        "Carpet & Upholstery Cleaning",
+        "Commercial Cleaning",
+        "Strata Cleaning",
+        "Industrial Cleaning",
+        "End of Lease Cleaning",
+        "Carpet & Upholstery",
         "Window Cleaning",
-        "Disinfection & Sanitisation",
-        "Post-Construction Cleaning"
+        "Specialised Cleaning"
       ],
       benefits: ["Trained & Vetted Staff", "Consistent Quality", "Flexible Scheduling", "Fully Insured"]
     },
@@ -39,13 +39,10 @@
       description:
         "Quality construction solutions delivered with precision, integrity and attention to detail.",
       services: [
-        "Residential Construction",
-        "Commercial Construction",
+        "Luxury Homes",
+        "Townhouse Developments",
         "Renovations",
-        "Extensions",
-        "Property Improvements",
-        "Project Management",
-        "Maintenance"
+        "Commercial Projects"
       ],
       benefits: ["Precision Delivery", "Licensed & Compliant", "Dedicated Project Management", "Quality Craftsmanship"]
     }
@@ -135,8 +132,14 @@
                   <input type="email" data-mq-email placeholder="Email Address *" class="w-full bg-white/[0.06] border border-white/25 text-white placeholder-white/45 px-3.5 py-3 text-sm focus:border-[#C9A227] focus:bg-white/[0.09] outline-none transition-colors" />
                   <p data-mq-error="email" class="text-red-400 text-[11px] mt-1 hidden" role="alert"></p>
                 </div>
+                <div data-mq-service-field class="mb-3">
+                  <select data-mq-service class="w-full bg-white/[0.06] border border-white/25 text-white px-3.5 py-3 text-sm focus:border-[#C9A227] focus:bg-white/[0.09] outline-none transition-colors">
+                    <option value="" class="text-ink">Service Type *</option>
+                  </select>
+                  <p data-mq-error="service" class="text-red-400 text-[11px] mt-1 hidden" role="alert"></p>
+                </div>
                 <div class="mb-4">
-                  <textarea data-mq-message rows="3" placeholder="Additional notes about your tasks *" class="w-full bg-white/[0.06] border border-white/25 text-white placeholder-white/45 px-3.5 py-3 text-sm focus:border-[#C9A227] focus:bg-white/[0.09] outline-none transition-colors resize-none"></textarea>
+                  <textarea data-mq-message rows="3" placeholder="Additional notes about your tasks" class="w-full bg-white/[0.06] border border-white/25 text-white placeholder-white/45 px-3.5 py-3 text-sm focus:border-[#C9A227] focus:bg-white/[0.09] outline-none transition-colors resize-none"></textarea>
                   <p data-mq-error="message" class="text-red-400 text-[11px] mt-1 hidden" role="alert"></p>
                 </div>
                 <button type="submit" class="btn-gold w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-3.5 text-xs font-semibold uppercase">
@@ -190,7 +193,15 @@
     panel.querySelector("[data-quote-title]").textContent = data.eyebrow;
 
     const quoteBtn = panel.querySelector("[data-open-quote]");
-    quoteBtn.hidden = key !== "cleaning";
+    quoteBtn.hidden = false;
+    quoteBtn.style.display = "";
+
+    const isCleaning = key === "cleaning";
+    const serviceField = panel.querySelector("[data-mq-service-field]");
+    if (serviceField) {
+      serviceField.hidden = !isCleaning;
+      serviceField.style.display = isCleaning ? "" : "none";
+    }
 
     const servicesList = panel.querySelector("[data-modal-services]");
     servicesList.innerHTML = data.services
@@ -204,6 +215,13 @@
         </li>`
       )
       .join("");
+
+    const serviceSelect = panel.querySelector("[data-mq-service]");
+    if (serviceSelect) {
+      serviceSelect.innerHTML =
+        `<option value="" class="text-ink">Service Type *</option>` +
+        data.services.map((s) => `<option value="${s}" class="text-ink">${s}</option>`).join("");
+    }
 
     const benefitsWrap = panel.querySelector("[data-modal-benefits]");
     benefitsWrap.innerHTML = data.benefits
@@ -229,7 +247,7 @@
       el.textContent = "";
       el.classList.add("hidden");
     });
-    panel.querySelectorAll("[data-modal-quote-form] input, [data-modal-quote-form] textarea").forEach((f) => {
+    panel.querySelectorAll("[data-modal-quote-form] input, [data-modal-quote-form] select, [data-modal-quote-form] textarea").forEach((f) => {
       f.classList.remove("border-red-500/70");
       f.removeAttribute("aria-invalid");
     });
@@ -240,6 +258,8 @@
     const name = panel.querySelector("[data-mq-name]");
     const phone = panel.querySelector("[data-mq-phone]");
     const email = panel.querySelector("[data-mq-email]");
+    const serviceField = panel.querySelector("[data-mq-service-field]");
+    const service = serviceField && !serviceField.hidden ? panel.querySelector("[data-mq-service]") : null;
     const message = panel.querySelector("[data-mq-message]");
 
     const setError = (field, key, msg) => {
@@ -258,7 +278,7 @@
     if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
       setError(email, "email", "Please enter a valid email.");
     }
-    if (!message.value.trim()) setError(message, "message", "Please add a short message.");
+    if (service && !service.value.trim()) setError(service, "service", "Please select a service type.");
 
     return valid;
   }
@@ -375,7 +395,7 @@
         el.textContent = "";
         el.classList.add("hidden");
       });
-      panel.querySelectorAll("[data-modal-quote-form] input, [data-modal-quote-form] textarea").forEach((f) => {
+      panel.querySelectorAll("[data-modal-quote-form] input, [data-modal-quote-form] select, [data-modal-quote-form] textarea").forEach((f) => {
         f.classList.remove("border-red-500/70");
         f.removeAttribute("aria-invalid");
       });

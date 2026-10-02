@@ -79,3 +79,15 @@ change.
 - Privacy Policy / Terms & Conditions links point to `#` (pages not built)
 - All photography is royalty-free stock (Unsplash) — swap via
   `js/images.js` when real project/team photography is available
+
+## Update — 2026-10-02
+
+- Homepage "Our Work" tiles now link to the service popups (`services.html?service=cleaning|construction`)
+- Service popups are deep-linkable via `?service=` (handled in `js/modal.js`)
+- Popups redesigned: large logo intro, then after 5 s a full-width coloured
+  page (hero, services, why choose us, investment, CTA) with stock photos
+  (registry: `SE_IMG.stock` in `js/images.js`)
+- Project tidied: unreferenced files moved to `_unused/` (safe to delete once
+  reviewed); log moved to `docs/`
+- Note: `js/contact.js` mentioned earlier no longer exists; the contact page
+  now uses a `mailto:` form with an inline script in `contact.html`

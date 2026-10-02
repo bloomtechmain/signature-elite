@@ -85,6 +85,9 @@ html, body { max-width: 100%; }
   border: 1px solid rgba(255, 255, 255, 0.16);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
+[data-hero-panel].panel-frosted-dark {
+  background: rgba(8, 8, 8, 0.34);
+}
 .panel-frosted-light {
   background: rgba(247, 246, 242, 0.72);
   backdrop-filter: blur(20px) saturate(150%);
@@ -392,48 +395,159 @@ body.modal-open {
   overflow: hidden;
 }
 
-/* On short viewports there isn't room for every block inside the service
-   modal without introducing scroll. Drop the least essential block (Why
-   Choose Us) and tighten spacing so Key Services + the quote CTA always
-   stay visible without scrolling. The image-height and padding tweaks are
-   scoped to the sub-md stacked layout only — on md+ (the two-column
-   layout) the image uses md:h-full and must never be capped, or it
-   collapses to a sliver while the row stays tall. A short but WIDE
-   desktop window (browser zoom, OS display scaling) still hits the
-   max-height condition, so width must gate these two rules. */
-@media (max-height: 920px) {
-  .service-modal-card [data-modal-optional] {
-    display: none;
-  }
-  .service-modal-card [data-modal-content] {
-    padding: 14px 20px;
-  }
-  .service-modal-card [data-modal-title] {
-    margin-bottom: 6px;
-  }
-  .service-modal-card [data-modal-description] {
-    margin-bottom: 10px;
-  }
-  .service-modal-card [data-view="details"] > .gold-rule {
-    margin-bottom: 10px;
-  }
-  .service-modal-card [data-modal-services] {
-    margin-bottom: 10px;
-  }
+/* Intro -> page layout. Phase A: big logo column + hero. Phase B (.is-page):
+   logo column collapses, a small brand bar pins top-left, content goes full width. */
+.service-modal-card {
+  background: #0B1320;
+}
+.service-modal-grid {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  transition: grid-template-columns 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.service-modal-card.is-page .service-modal-grid {
+  grid-template-columns: 0fr 1fr;
+}
+.service-modal-logocol {
+  min-width: 0;
+  overflow: hidden;
+}
+.service-modal-logo {
+  width: min(80%, 460px);
+  height: auto;
+  transform-origin: top left;
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+}
+.service-modal-card.is-page .service-modal-logo,
+.service-modal-card.is-page [data-modal-caption-wrap] {
+  transform: scale(0.15);
+  opacity: 0;
+}
+.service-modal-content {
+  min-width: 0;
+  background: #0B1320;
 }
 
-/* Image-height cap belongs ONLY to the sub-md stacked layout (image row
-   above content row) — never the md+ side-by-side layout, where the image
-   must keep filling its column via md:h-full. */
-@media (max-height: 920px) and (max-width: 767px) {
-  .service-modal-card [data-modal-image-wrap] {
-    height: 64px;
+.service-modal-brandbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 72px 0 clamp(20px, 3vw, 40px);
+  background: linear-gradient(180deg, rgba(8, 12, 20, 0.92), rgba(8, 12, 20, 0.7));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.35);
+  opacity: 0;
+  transform: translateY(-12px);
+  pointer-events: none;
+  transition: opacity 0.6s ease 0.5s, transform 0.6s ease 0.5s;
+}
+.service-modal-brandbar img {
+  height: 44px;
+  width: 44px;
+  object-fit: cover;
+}
+.service-modal-brandbar span {
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.service-modal-card.is-page .service-modal-brandbar {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+.service-modal-card [data-modal-close] {
+  z-index: 30;
+}
+
+/* Page bands — each section has its own colour */
+.sm-band { padding: 64px 0; }
+.sm-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 64px);
+}
+.sm-hero {
+  background-color: #0B1320;
+  background-size: cover;
+  background-position: center;
+  padding-top: 120px;
+  padding-bottom: 72px;
+}
+.sm-eyebrow {
+  color: #C9A227;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.sm-heading {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  line-height: 1.2;
+  color: #121212;
+  margin-bottom: 28px;
+  max-width: 34rem;
+}
+.sm-services { background: #F5EFE0; }
+.sm-services .sm-eyebrow { color: #8E6F10; }
+.sm-why { background: linear-gradient(135deg, #4A7098 0%, #2F4C68 50%, #1B2E42 100%); }
+.sm-invest { background: #15100A; border-top: 3px solid #C9A227; }
+.sm-cta { background: linear-gradient(90deg, #C9A227, #E4C566); padding: 40px 0; }
+.sm-cta-btn { background: #0B0B0B; color: #fff; transition: color 0.3s ease; }
+.sm-cta-btn:hover { color: #D8B44A; }
+
+.sm-card {
+  background: #0E1A28;
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+.sm-card:hover { transform: translateY(-3px); border-color: rgba(201, 162, 39, 0.7); }
+.sm-card-gold { background: #211A0F; }
+.sm-why-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(216, 180, 74, 0.5);
+}
+
+/* Mobile: logo strip above content, collapses to the brand bar */
+@media (max-width: 767px) {
+  .service-modal-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 190px 1fr;
+    transition: grid-template-rows 0.9s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  /* No room for the caption at this height — it would overlap the close
-     button and the shrunken logo thumbnail. */
-  .service-modal-card [data-modal-caption-wrap] {
-    display: none;
+  .service-modal-card.is-page .service-modal-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0px 1fr;
   }
+  .service-modal-logo { width: auto; height: 70%; }
+  .service-modal-card [data-modal-caption-wrap] { display: none; }
+  .sm-band { padding: 48px 0; }
+  .sm-hero { padding-top: 100px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-modal-grid,
+  .service-modal-logo,
+  .service-modal-brandbar { transition: none; }
 }
 
 /* ---------------------------------------------------------------------
